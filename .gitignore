@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.Rprofile
+blacktip.Rproj
+packrat/lib*/
+.DS_Store
+limbatus.Rproj
