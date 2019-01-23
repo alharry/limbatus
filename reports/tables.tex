@@ -1,0 +1,194 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[bottom=1.5cm,top=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{}
+    \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+\fontsize{8}{20}
+\usepackage{lscape}
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{table}[ht]
+\centering
+\caption{Indices used for staging reproductive condition and a description of the criteria for classifying mature and immature condition \newline} 
+\begin{tabular}{llll}
+  \toprule
+Organ & Index & Description & Maturity assumption \\ 
+  \midrule
+Female Uterus & U  = 1 & Uniformly thin tubular structure & Immature \\ 
+   & U  = 2 & Thin, tubular structure, partly enlarged posteriorly & Immature \\ 
+   & U  = 3 & Uniformly enlarged tubular structure & Mature \\ 
+   & U  = 4 & In utero eggs present without macroscopically visible embryos present & Mature \\ 
+   & U  = 5 & In utero embryos macroscopically visible & Mature \\ 
+   & U  = 6 & Enlarged tubular structure distended & Mature \\ 
+   &  &  &  \\ 
+  Male Clasper & C = 1 & Pliable with no calcification & Immature \\ 
+   & C = 2 & Partly calcified & Immature \\ 
+   & C = 3 & Rigid and fully calcified & Mature \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
+
+\newpage \begin{landscape}
+\
+\
+\begin{table}[ht]
+\centering
+\caption{Estimated life history parameters and standard errors for \textit{C. limbatus} 
+                    from the present study compared with those of
+                    \textit{C. tilstoni} from previous studies in Queensland (Harry \textit{et al.} 2013)
+                    and the Northern Territory (Stevens and Wiley 1986; Davenport and Stevens 1988) * approximate values not statistically derived \newline} 
+\begin{tabular}{lllllllll}
+  \toprule
+Process & Parameter & Description & \textit{C. limbatus} &   & \textit{C. tilstoni} (QLD) &      & \textit{C. tilstoni} (NT) &    \\ 
+  \midrule
+ &  &  & Female / Both & Male & Female / Both & Male & Female / Both & Male \\ 
+   &  &  &  &  &  &  &  &  \\ 
+  Growth &  & Model type & Von Bertalanffy &  & Logistic &  & Von Bertalanffy &  \\ 
+   & $L_{\infty}$ & Asymptotic length (cm) & 263.3 (6.4) & 241.9 (3.6) & 173.9 & 147.8 & 181.4 & 156.8 \\ 
+   & $K$ & Growth coefficient (yr$^{-1}$) & 0.1418 (0.012) & 0.1565 (0.0088) & 0.2676 & 0.3479 & 0.19 & 0.25 \\ 
+   & $L_0$ & Length at birth (cm) & 72.77 (0.3) &  & 64.48 & 62.91 & 59.68 & 59.28 \\ 
+   & $CV_L$ & CV length at age & 0.0487 (0.0024) &  &  &  &  &  \\ 
+  Weight & $log(\beta_1)$ & Weight length coefficient & -12.34 (0.082) &  & -12.64 &  & -12.26 &  \\ 
+   & $\beta_2$ & Weight length exponent & 3.061 (0.017) &  & 3.12 &  & 3.06 &  \\ 
+   & $\sigma_W$ & Variance & 0.1363  &  & 0.09209 &  &  &  \\ 
+  Maturity & $L_{50}$ & 50 $\%$ maturity (cm) & 200.2 (1.5) &  & 124.7 & 119.9 & 120* & 110* \\ 
+   & $L_{95}$ & 95 $\%$ maturity (cm) & 216.2 (3) &  & 125 & 128 & 130* & 120* \\ 
+   & $A_{50}$ & 50 $\%$ maturity (yrs) & 8.334 (0.26) &  & 6.065 & 5.215 & 4* & 3* \\ 
+   & $A_{95}$ & 95  $\%$ maturity (yrs) & 9.738 (0.66) &  & 7.534 & 6.98 & 5* & 4* \\ 
+   & $L_{50}\prime$ & 50 $\%$ maternity (cm) &  &  & 137 &  & 130* &  \\ 
+   & $L_{95}\prime$ & 95 $\%$ maternity (cm) &  &  & 137 &  & 140* &  \\ 
+   & $A_{50}\prime$ & 50 $\%$ maternity (yrs) &  &  & 7.102 &  & 5* &  \\ 
+   & $A_{95}\prime$ & 95  $\%$ maternity (yrs) &  &  & 9.293 &  & 6* &  \\ 
+  Fecundity & $\beta_5$ & Intercept / Mean & 6.6 (2.7) &  & -5.408 &  & 3 &  \\ 
+   & $\beta_6$ & Slope &  &  & 0.05725 &  &  &  \\ 
+   & $P_{Max}$ & Annual prop. pregnant & 0.33 - 0.5 &  & 0.833 - 1 &  & 1 &  \\ 
+   & $R$ & Sex ratio & 1:1 &  & 1:1 &  & 1:0.924 &  \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
+
+
+\end{landscape}
+
+\newpage
+
+\begin{table}[ht]
+\centering
+\caption{Details of five pregnant female \textit{C. limbatus} captured from northern New South Wales waters\newline} 
+\begin{tabular}{lrrrl}
+  \toprule
+Date & Maternal TL (cm) & No. embryos & Mean embryo TL (cm) & Comments \\ 
+  \midrule
+11 April 2010 & 217 &   7 &  44 & 3M 4F \\ 
+  21 April 2010 & 202 &   2 &  32 & 1M and 1 undeveloped egg \\ 
+  21 April 2010 & 246 &   8 &  48 & 2M 6F \\ 
+  21 April 2010 & 228 &   7 &  42 & 2M 5F \\ 
+  28 June 2009 & 264 &   9 &  55 & 4M 5F \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
+
+\newpage \begin{landscape}
+\
+\
+\begin{table}[ht]
+\centering
+\caption{Comparative demographic analysis of \textit{C. limbatus} and \textit{C. tilstoni}. $\Lambda$ is the intrinsic rate of population decrease with age (gross productivity), \textit{M} is the instantaneous rate of natural mortality, \textit{r} is the intrinsic rate of population increase with time (net productivity), $r_{0}$ is lifetime female reproductive output of female offspring, $\mu$ and $\sigma^2$ are the mean and variance of ages in the population in numbers, \textit{N}, and biomass, \textit{B}. Values presented are the mean and standard errors derived from 1000 Monte Carlo simulations.} 
+\begin{tabular}{llllllllll}
+  \toprule
+   & Sex & $\Lambda (yr^{-1})$ & $M (yr^{-1})$ & $r (yr^{-1})$ & $r_{0}$ & $\mu_N$ & $\sigma^2_N$ & $\mu_B$ & $\sigma^2_B$ \\ 
+  \midrule
+\textit{C. tilstoni} (NT) & Female & -0.31 (0.023) & 0.1 (0.021) & 0.2 (0.031) & 8.6 (3.3) & 3.3 (0.25) & 11 (1.7) & 6 (0.44) & 18 (2.3) \\ 
+   & Male & -0.33 (0.042) & 0.13 (0.027) &  &  & 3 (0.39) & 9.4 (2.5) & 5.2 (0.61) & 14 (3.2) \\ 
+  \textit{C. tilstoni} (QLD) & Female & -0.26 (0.012) & 0.09 (0.018) & 0.17 (0.021) & 12 (5.2) & 3.9 (0.17) & 15 (1.4) & 7.4 (0.39) & 26 (1.9) \\ 
+   & Male & -0.29 (0.032) & 0.12 (0.024) &  &  & 3.5 (0.42) & 13 (3.1) & 6.1 (0.64) & 19 (3.7) \\ 
+  \textit{C. limbatus} & Female & -0.19 (0.014) & 0.074 (0.016) & 0.11 (0.021) & 9.4 (4.5) & 5.4 (0.37) & 29 (3.9) & 10 (0.63) & 45 (5.2) \\ 
+   & Male & -0.2 (0.026) & 0.082 (0.016) &  &  & 5.2 (0.72) & 28 (7.9) & 9.5 (1.1) & 42 (9.9) \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
+
+\end{landscape}
+
+
+\end{document}

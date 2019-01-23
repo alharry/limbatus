@@ -1,0 +1,162 @@
+---
+output: 
+  pdf_document:
+    latex_engine: "pdflatex"
+    keep_tex: true
+geometry: 
+    - bottom=1.5cm
+    - top=1.5cm
+    - left=1.5cm
+    - right=1.5cm
+header-includes:
+    - \fontsize{8}{20}
+    - \usepackage{lscape}
+    - \pagenumbering{gobble} 
+tables: true
+---
+
+```{r setup, include=FALSE}
+source("../analysis/load_results.R")
+```
+
+\
+\
+```{r tbl1, results = 'asis'}
+Table1 <- read_excel("../data/table1.xlsx") %>% xtable(caption = "Indices used for staging reproductive condition and a description of the criteria for classifying mature and immature condition \\newline")
+
+print(Table1, type = "latex", caption.placement = "top", comment = F, include.rownames = F, 
+      sanitize.text.function = identity, booktabs = TRUE)
+```
+
+\newpage \begin{landscape}
+\
+\
+```{r tbl2, results = 'asis'}
+Table2 <- read_excel("../data/table2.xlsx")
+
+# Female common blacktip
+fembtp <- c("Female / Both", NA,
+            "Von Bertalanffy",
+             paste(summary(rep)[1,1] %>% signif(4), " (", summary(rep)[1,2] %>% signif(2), ")", sep = ""),
+             paste(summary(rep)[3,1] %>% signif(4), " (", summary(rep)[3,2] %>% signif(2), ")", sep = ""),
+             paste(summary(rep)[5,1] %>% signif(4), " (", summary(rep)[5,2] %>% signif(2), ")", sep = ""),
+             paste(summary(rep)[6,1] %>% signif(4), " (", summary(rep)[6,2] %>% signif(2), ")", sep = ""),
+             paste(summary(lw_both$model)$coef[1,1] %>% signif(4), " (", summary(lw_both$model)$coef[1,2] %>% signif(2), ")", sep = ""),
+             paste(summary(lw_both$model)$coef[2,1] %>% signif(4), " (", summary(lw_both$model)$coef[2,2] %>% signif(2), ")", sep = ""),
+             paste(sigma(lw_both$model) %>% signif(4), ""),
+             paste(lm_both$results$L50[1], " (", lm_both$results$SE_L50 %>% signif(2), ")", sep = ""),
+             paste(lm_both$results$L95[1], " (", lm_both$results$SE_L95 %>% signif(2), ")", sep = ""),
+             paste(am_both$results$L50[1], " (", am_both$results$SE_L50 %>% signif(2), ")", sep = ""),
+             paste(am_both$results$L95[1], " (", am_both$results$SE_L95 %>% signif(2), ")", sep = ""),
+             rep(NA, 4),
+             paste(mean(data$Emb, na.rm = T), " (", sd(data$Emb, na.rm = T) %>% signif(2), ")", sep = ""),
+             NA,
+             "0.33 - 0.5", "1:1")
+
+# Male common blacktip
+malebtp <- c("Male", NA, NA,
+             paste(summary(rep)[2,1] %>% signif(4), " (", summary(rep)[2,2] %>% signif(2), ")", sep = ""),
+             paste(summary(rep)[4,1] %>% signif(4), " (", summary(rep)[4,2] %>% signif(2), ")", sep = ""),
+             rep(NA, 17))
+
+# Female Australian blacktip (QLD) 
+femabtq <- c("Female / Both", NA, "Logistic", 173.9, 0.2676, 64.48, NA,
+            signif(coef(lw_abt$model)[1], 4),
+            signif(coef(lw_abt$model)[2], 4),
+            sigma(lw_abt$model) %>%signif(4), 
+            124.7, 125.0, 6.065, 7.534, 137.0, 137.0, 7.102, 9.293, -5.408, 0.05725, "0.833 - 1", "1:1")
+
+# Male Australian blacktip (QLD)
+maleabtq <- c("Male", NA, NA, 147.8, 0.3479, 62.91, NA, NA, NA, NA, 119.9, 128.0, 5.215, 6.980, NA, NA, NA, NA, NA, NA, NA, NA)
+
+# Female Australian blacktip (NT)
+femabtnt <- c("Female / Both", NA, "Von Bertalanffy", 181.4, 0.19, 59.68, NA, log(4.75e-6) %>% signif(4), 3.06, NA,
+              "120*", "130*", "4*", "5*", "130*", "140*", "5*", "6*", 3.0, NA, 1, "1:0.924")
+
+# Male Australian blacktip (NT)
+maleabtnt <- c("Male", NA, NA, 156.8, 0.25, 59.28, NA, NA, NA, NA, "110*", "120*", "3*", "4*", NA, NA, NA, NA, NA, NA, NA, NA)
+
+#Need to check that ages at maturity in this table have been derived from correct growth curves for NT tilstoni and are used correctly in demog analysis
+
+
+Table2 <- Table2 %>%
+  mutate(`\\textit{C. limbatus}` = fembtp, ` ` = malebtp,
+         `\\textit{C. tilstoni} (QLD)` = femabtq, `    ` = maleabtq,
+         `\\textit{C. tilstoni} (NT)` = femabtnt, `  ` = maleabtnt) %>% 
+  xtable(caption = "Estimated life history parameters and standard errors for \\textit{C. limbatus} 
+                    from the present study compared with those of
+                    \\textit{C. tilstoni} from previous studies in Queensland (Harry \\textit{et al.} 2013)
+                    and the Northern Territory (Stevens and Wiley 1986; Davenport and Stevens 1988) * approximate values not statistically derived \\newline")
+
+print(Table2, type="latex", caption.placement = "top", comment = F, include.rownames = F,
+      sanitize.text.function = identity, booktabs = TRUE)
+```
+
+
+\end{landscape}
+
+\newpage
+\
+\
+```{r tbl3, results = 'asis'}
+pregnant <- tbl_df(data) %>% filter(Uter.stage %in% "E") %>% 
+  mutate(Date = format(Date, "%d %B %Y")) %>%
+  mutate(EmbTL = EmbTL / 10) %>%
+  select(Date, `Maternal TL (cm)` = STL, `No. embryos` = Emb, `Mean embryo TL (cm)` = EmbTL, Comments = Sex.Ratio.M.F) %>%
+  mutate(`No. embryos` = as.integer(`No. embryos`), `Mean embryo TL (cm)` = as.integer(`Mean embryo TL (cm)`),
+         `Maternal TL (cm)` = as.integer(`Maternal TL (cm)`), Date  = as.character(Date))
+  
+Table3 <- pregnant %>% xtable(caption = "Details of five pregnant female \\textit{C. limbatus} captured from northern New South Wales waters\\newline")
+
+print(Table3, type = "latex", caption.placement = "top", comment = F, include.rownames = F, 
+      sanitize.text.function = identity, booktabs = TRUE)
+```
+
+\newpage \begin{landscape}
+\
+\
+```{r tbl4, results = 'asis'}
+Table4 <- demog_summary %>% gather(key = parameter, value = value, -species) %>%
+  mutate(Sex = ifelse(parameter %in% 
+  c("M_m_mean", "M_m_sd", 
+    "Lambda_m_mean", "Lambda_m_sd",
+    "age_m_mean_n", "age_m_mean_n_sd", 
+    "age_m_var_n",  "age_m_var_n_sd",
+    "age_m_mean", "age_m_mean_sd",
+    "age_m_var", "age_m_var_sd"), "Male", "Female")) %>%
+  mutate(parameter = ifelse(parameter %in% c("M_m_mean", "M_f_mean"), "M_mean", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("M_m_sd", "M_f_sd"), "M_sd", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("Lambda_m_mean", "Lambda_f_mean"), "Lambda_mean", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("Lambda_m_sd", "Lambda_f_sd"), "Lambda_sd", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("age_m_mean_n", "age_f_mean_n"), "Age_mean_n", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("age_m_mean_n_sd", "age_f_mean_n_sd"), "Age_mean_n_sd", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("age_m_var_n", "age_f_var_n"), "Age_var_n", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("age_m_var_n_sd", "age_f_var_n_sd"), "Age_var_n_sd", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("age_m_mean", "age_f_mean"), "Age_mean", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("age_m_mean_sd", "age_f_mean_sd"), "Age_mean_sd", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("age_m_var", "age_f_var"), "Age_var", parameter)) %>%
+  mutate(parameter = ifelse(parameter %in% c("age_m_var_sd", "age_f_var_sd"), "Age_var_sd", parameter)) %>%
+  spread(key = parameter, value = value) %>%
+  mutate(`$\\Lambda (yr^{-1})$` = paste(Lambda_mean, " (", Lambda_sd, ")", sep = "")) %>%
+  mutate(`$M (yr^{-1})$` = paste(M_mean, " (", M_sd, ")", sep = "")) %>%
+  mutate(`$r (yr^{-1})$` = ifelse(Sex %in% "Female", paste(r_int_mean, " (", r_int_sd, ")", sep = ""), NA)) %>%
+  mutate(`$r_{0}$` = ifelse(Sex %in% "Female", paste(r_0_mean, " (", r_0_sd, ")", sep = ""), NA)) %>%
+  mutate(`$\\mu_N$` = paste(Age_mean_n, " (", Age_mean_n_sd, ")", sep = "")) %>%
+  mutate(`$\\sigma^2_N$` = paste(Age_var_n, " (", Age_var_n_sd, ")", sep = "")) %>% 
+  mutate(`$\\mu_B$` = paste(Age_mean, " (", Age_mean_sd, ")", sep = "")) %>%
+  mutate(`$\\sigma^2_B$` = paste(Age_var, " (", Age_var_sd, ")", sep = "")) %>% 
+  select(-Age_mean_n, -Age_mean_n_sd, -Age_var_n,-Age_var_n_sd,
+         -Age_mean, -Age_mean_sd, -Age_var,-Age_var_sd,
+         -M_mean, -M_sd, -r_0_mean, -r_0_sd, -r_int_mean, -r_int_sd, -Lambda_mean, -Lambda_sd) %>%
+  mutate(species = fct_recode(species, `\\textit{C. limbatus}` = "C. limbatus")) %>%
+  mutate(species = fct_recode(species, `\\textit{C. tilstoni} (NT)` = "C. tilstoni (NT)")) %>%
+  mutate(species = fct_recode(species, `\\textit{C. tilstoni} (QLD)` = "C. tilstoni (QLD)")) %>%
+  mutate(species = if_else(Sex %in% "Female", species, factor(NA))) %>%
+  rename(`  ` = species) %>%
+  xtable(caption = "Comparative demographic analysis of \\textit{C. limbatus} and \\textit{C. tilstoni}. $\\Lambda$ is the intrinsic rate of population decrease with age (gross productivity), \\textit{M} is the instantaneous rate of natural mortality, \\textit{r} is the intrinsic rate of population increase with time (net productivity), $r_{0}$ is lifetime female reproductive output of female offspring, $\\mu$ and $\\sigma^2$ are the mean and variance of ages in the population in numbers, \\textit{N}, and biomass, \\textit{B}. Values presented are the mean and standard errors derived from 1000 Monte Carlo simulations.")
+
+print(Table4, type = "latex", caption.placement = "top", comment = F, include.rownames = F, 
+      sanitize.text.function = identity, booktabs = TRUE)
+```
+
+\end{landscape}

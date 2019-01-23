@@ -1,0 +1,1399 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{2}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Life history of the common blacktip shark, Carcharhinus limbatus, from central eastern Australia and comparative demography of a cryptic shark complex},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Life history of the common blacktip shark, \emph{Carcharhinus limbatus},
+from central eastern Australia and comparative demography of a cryptic
+shark complex}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Alastair V Harry\(^{A,B,G}\), Paul A Butcher\(^C\), William G
+Macbeth\(^D\), Jess AT Morgan\(^E\), Stephen M Taylor\(^B\), Pascal T
+Geraghty\(^F\)\\
+~\\
+\(^A\)Centre for Sustainable Tropical Fisheries \& Aquaculture, College
+of Marine \& Environmental Sciences, James Cook University, Townsville,
+QLD, 4811, Australia\\
+\(^B\)Department of Primary Industries and Regional Development, PO Box
+20, North Beach, WA, 6920, Australia\\
+\(^C\)Department of Primary Industries, New South Wales Fisheries, PO
+Box 4321, Coffs Harbour, NSW 2450, Australia\\
+\(^D\)FERM Services, PO Box 337, Sheffield, TAS, 7306, Australia\\
+\(^E\)Molecular Fisheries Laboratory, School of Biomedical Sciences, The
+University of Queensland, St.~Lucia, Queensland 4072, Australia\\
+\(^F\)Roads and Maritime Services, 33 James Craig Road, Rozelle Bay,
+NSW, 2039, Australia\\
+\(^G\)Corresponding author:
+\href{mailto:alastair.harry@gmail.com}{\nolinkurl{alastair.harry@gmail.com}}\\
+\emph{Running title: Biology and comparative demography of Carcharhinus
+limbatus}}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+    \date{}
+    \predate{}\postdate{}
+  
+\fontsize{12}{20}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\hypertarget{abstract}{%
+\subsubsection{Abstract}\label{abstract}}
+
+Common and Australian blacktip sharks (\emph{Carcharhinus limbatus} and
+\emph{Carcharhinus tilstoni}) occur sympatrically in Australia where
+they are reported as a complex due to their morphological similarities.
+This study provides the first description of the life history of
+\emph{C. limbatus} using samples from central eastern Australia, where
+\emph{C. tilstoni} is rare. Females (68 - 267 cm TL, \emph{n} = 183) and
+males (65 - 255 cm TL, \emph{n} = 292) both matured at 8.3 years and 200
+cm TL, which exceeds the maximum length of \emph{C. tilstoni}. Vertebral
+ageing revealed that female and male \emph{C. limbatus} lived to 22 and
+24 years, respectively, exceeding known longevity in \emph{C. tilstoni}.
+The intrinsic rate of population increase, \emph{r}, calculated using a
+Euler-Lotka demographic method was 0.11 (0.02) yr\(^{-1}\) for \emph{C.
+limbatus}, compared to 0.17 (0.02) and 0.20 (0.03) yr\(^{-1}\) for two
+\emph{C. tilstoni} stocks. Despite their similar appearance, these
+species differed in both their biological productivity and
+susceptibility to fishing activities. Monitoring of relative abundance
+should be a priority given they are likely to have divergent responses
+to fishing.
+
+\textbf{Additional keywords:} age and growth, reproductive biology,
+Chondrichthyes, fisheries management
+
+\newpage
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+Cryptic species complexes pose many challenges for fisheries management
+and biodiversity conservation. These are particularly evident in the
+morphologically conservative class of chondrichthyan fishes where a
+taxonomic rennaissance in recent years has revealed high cryptic
+biodiversity (Marshall \emph{et al.} 2009; Ebert \emph{et al.} 2010;
+White and Last 2012; Quattro \emph{et al.} 2013). By virtue, the
+discovery of a complex violates the assumption that the species is a
+single unit for management purposes, often with important consequences.
+For example, declines in the Critically Endangered common skate, already
+one of the best documented examples of near-extinction of a marine fish
+(Brander 1981; Dulvy \emph{et al.} 2000), might have masked greater
+declines in the larger and more intrinsically susceptible flapper skate,
+\emph{Dipturus intermedius} (Iglésias \emph{et al.} 2010). Similarly, it
+is likely that the California butterfly ray, \emph{Gymnura marmorata},
+has a more restricted and fragmented range than previously thought as a
+result of historical misidentification with the morphologically similar
+and sympatric Mazatlan butterfly ray, \emph{Gymnura crebripuncata}
+(Smith \emph{et al.} 2009). If hybridisation is occuring, the
+productivity of a fish stock can also be reduced if hybrid fitness is
+low and hybridisation common (Hatfield and Schluter 1999).
+
+Australia's blacktip shark complex is another case that highlights the
+difficulties associated with morphologically similar, co-occurring
+sharks and rays. Study of this species complex over the past four
+decades has left a confusing body of scientific literature that
+obstructs effective management. The complex consists of two species; the
+Australian blacktip, \emph{Carcharhinus tilstoni}, a shark endemic to
+inshore coastal waters of northern Australia, and the more widely
+distributed common blacktip, \emph{Carcharhinus limbatus}, a shark found
+throughout inshore tropical and subtropical waters globally. Whitley's
+(1950) initial account of \emph{C. tilstoni} described the shark as a
+new species, but stated that it differed only from \emph{C. limbatus} in
+its dentition. Subsequent taxonomic studies concluded it was a synonym
+of \emph{C. limbatus}, a species that varies in many aspects of its
+morphology across its range (Garrick 1982; Compagno 1988).
+
+When Australia's northern shark resources developed during the 1970s,
+\emph{C. limbatus} was initially thought to be the largest single
+component of the catch in a Taiwanese surface gillnet fishery that
+retained over 20 000 tonnes per year of pelagic fish and sharks from the
+Arafura and Timor Seas (Millington and Walter 1981; Lyle 1984). The
+proclamation of the Australian Fishing Zone brought this fishery under
+Australian jurisdiction in 1979 and research surveys revealed that the
+main target shark species was actually comprised of two distinct groups
+of individuals separable by clasper lengths, vertebral counts, and
+pelvic fin colouration (Stevens and Wiley 1986). The smaller maturing,
+and far more common of these two groups was resurrected as \emph{C.
+tilstoni} (Stevens and Wiley 1986). The other, much rarer group, which
+had dark pelvic fin markings and was seemingly present in only
+negligible quantities (a 1 to 300 ratio), was confirmed genetically to
+be the true \emph{C. limbatus} (Lavery and Shaklee 1991).
+
+The perception that \emph{Carcharhinus limbatus} was a minor component
+of shark landings continued until the late 2000s (Last and Stevens 2009)
+when a survey using mitochondrial DNA (mtDNA) sequences unexpectedly
+found it to be present in quantities equal to \emph{C. tilsoni} (Ovenden
+\emph{et al.} 2010). At around the same time, another study using mtDNA
+taken from samples from temperate latitudes on the east coast recorded a
+southward range expansion in excess of 1000 km for \emph{C. tilstoni},
+challenging the perception that the species was confined to the tropics
+(Boomer \emph{et al.} 2010). However, the validity of these findings was
+brought into doubt when a mismatch between vertebral counts and mtDNA
+species identity was found in Queensland blacktips (Harry \emph{et al.}
+2012). This mismatch extended to various other morphological and
+ecological characteristics of both species, including body size,
+maturity, length at birth, and timing of birth. Investigation of nuclear
+markers revealed this discordance to be the result of hybridisation
+between the two species (Morgan \emph{et al.} 2012). More recent
+research indicates that hybrids are introgressed and likely the result
+of ancestral interbreeding between the two species (J.A.T. Morgan,
+unpublished data).
+
+Despite several decades of research on blacktip sharks in Australia,
+considerable uncertainty remains over the range of both species, aspects
+of their ecology, the impact of historical overfishing (Walters and
+Buckworth 1997; Field \emph{et al.} 2012), and their relative abundances
+and ratios in the multiple commercial fisheries in which they are
+captured (Harry \emph{et al.} 2011; Tillett \emph{et al.} 2012). One
+major obstacle to progress has recently been resolved with the discovery
+that pelvic fin markings can be used to discriminate between the two
+species with 90\% accuracy (Johnson \emph{et al.} 2017). Another major
+issue that remains unaddressed is the absence of baseline life history
+data for \emph{C. limbatus} from Australian waters. An understanding of
+its life history is needed to determine the relative productivity of
+this species and its suceptibility to fishing. It is also required to
+help provide a clear picture of the ecological role this species plays.
+It has generally been accepted that the larger \emph{C. limbatus} is
+likely to be more intrinsically susceptible to fishing than \emph{C.
+tilsoni} (Bradshaw \emph{et al.} 2013). However, with no practical way
+to distinguish between them in catches until now and limited knowledge
+of the biology of \emph{C. limbatus}, they are reported together, and
+effectively managed as a combined taxonomic category in all fisheries
+that catch them.
+
+This study provides the first detailed account of the life history of
+\emph{C. limbatus} in Australian waters. It is based on data obtained
+from multiple sources off the central east coast of Australia, where
+\emph{C. tilstoni} is largely or completely absent. The size, growth,
+maturity, and reproductive biology are compared with those of \emph{C.
+tilstoni} from previous studies in the northeastern state of Queensland
+(Qld) (Harry \emph{et al.} 2013) and the Northern Territory (NT)
+(Stevens and Wiley 1986; Davenport and Stevens 1988). Using demographic
+analyses we examine differences in stock productivity and resilience to
+fishing of sympatric blacktip sharks and discuss the management
+implications for this species complex.
+
+\hypertarget{materials-and-methods}{%
+\subsection{Materials and Methods}\label{materials-and-methods}}
+
+\hypertarget{reconstruction-of-c.-limbatus-life-history}{%
+\subsubsection{\texorpdfstring{Reconstruction of \emph{C. limbatus} life
+history}{Reconstruction of C. limbatus life history}}\label{reconstruction-of-c.-limbatus-life-history}}
+
+The life history of \emph{C. limbatus} was reconstructed using samples
+synthesised from four predominantly fishery-dependent sources from
+southeast Qld and northern New South Wales (NSW) (Fig. 1). These were:
+two observer surveys of the NSW Ocean Trap \& Line Fishery (OTLF)
+carried out between 2008 and 2010 (Macbeth \emph{et al.} 2009) and in
+2013 (Broadhurst \emph{et al.} 2014); a 2004 to 2007 study of the shark
+fauna of Moreton Bay involving both fishery-independent sampling and a
+commercial fisher from the East Coast Inshore Finfish Fishery (ECIFF)
+(Taylor and Bennett 2013); and a sample of neonate sharks purchased from
+the same fisher in 2007 used to count pre-caudal vertebrae (Harry
+\emph{et al.} 2012).
+
+Both the OTLF and ECIFF are multi-sector, multi-gear fisheries, and a
+description of their characteristics is given in each of the respective
+studies above. In summary, samples from the OTLF were predominantly
+obtained from vessels targeting large sharks (\textgreater{} 2 m total
+length) for their fins using demersal setlines, whereby multiple hooks
+were attached to a horizontally-set, weighted ground line in waters 5 to
+250 m depth (Macbeth \emph{et al.} 2009). Sampling occurred in NSW
+coastal waters between \(28^\circ 04'S\) (just north of Tweed Heads) and
+\(34^\circ 03'S\) (Sydney). Samples from the ECIFF were obtained from a
+commercial vessel targeting smaller sharks (\textless{} 1.5 m) and
+teleosts for their flesh in shallow (\textless{} 2 m depth), estuarine
+habitats of Moreton Bay using 700 - 800 m of small-mesh (7.6 - 15.2 cm)
+gillnet.
+
+Total length (TL) in cm was measured by placing the shark ventral side
+down with the upper lobe of the caudal fin depressed in line with the
+body axis. All further references to length throughout are in TL or have
+been converted to TL (see Supplementary Material). Body mass was
+measured to the nearest kilogram in sharks from NSW and nearest 0.1 kg
+in those from Qld. Sex was determined based on the presence of claspers
+on males, and outer clasper length (CL) was measured to the nearest mm
+between the point of the pelvic fin insertion and the tip of the clasper
+(Compagno 1984). In Qld the presence of an unhealed umbilical scar was
+also recorded to determine size and timing of birth. A section of 3 to 5
+vertebrae was sampled from the cervical region of each vertebral column
+for age determination.
+
+Sampling techniques were comparable for each of the four data sources,
+although due to the fishery-dependent nature of most sampling it was
+seldom possible to measure all variables for each individual. In
+particular, vertebrae were only collected from the first OTLF survey
+from 2008 to 2010, while weight data were primarily collected during the
+second OTLF survey in 2013.
+
+The species identity of all individuals sampled from NSW between 2008
+and 2010 (Fig. 1) was determined using mitochondrial (mtDNA) and nuclear
+(nDNA) genotyping (Morgan \emph{et al.} 2011, 2012). Although Taylor
+\emph{et al.} (2013) did not confirm the identity of samples using
+vertebral counts or molecular methods, Harry \emph{et al.} (2012) found
+only a single \emph{C. tilstoni} among a sample of 100 individuals from
+the same location. All unidentified individuals were assumed to be
+\emph{C. limbatus}.
+
+\hypertarget{age-determination-and-growth-analysis}{%
+\subsubsection{Age determination and growth
+analysis}\label{age-determination-and-growth-analysis}}
+
+Age was determined by counting concentric pairs of hypo- and
+hyper-mineralised growth zones on thin-sections of vertebrae centra.
+Ageing was conducted simultaneously with three other large carcharhinid
+species also captured in the OTLF and a full description of ageing
+protocols is given in Geraghty \emph{et al.} (2013). Ageing data for
+\emph{Carcharhinus limbatus} were withheld from that publication due to
+uncertainty about the effects of hybridisation with \emph{C. tilstoni}
+(Morgan \emph{et al.} 2012).
+
+Unstained, sectioned centra were aged twice under a microscope using
+transmitted light by two readers independently without knowledge of
+size, sex, or date of capture. \emph{Carcharhinus limbatus} has a
+synchronous reproductive cycle in the region (see below), enabling
+partial ages to be assigned subject to the assumptions that all growth
+zones represented annual increments and the population birth date was
+1st November (see Results). Within and between reader ageing bias was
+investigated graphically using age-bias plots and statistically using
+Bowker's test of symmetry (Hoenig \emph{et al.} 1995). Precision and
+reproducibility in ageing was determined by calculating the coefficient
+of variation of ageing error (Ogle 2017).
+
+Growth was modelled using a sex-structured von Bertalanffy model
+extended to explicitly include ageing error as a random effect, describe
+variability in growth and length observation error, and incorporate
+additional information on length at birth. The model described by Cope
+and Punt (2007) was used as the basis for this approach. This assumes
+that observed length at age, \(l_{i,g}\) for individual \emph{i} of sex
+\(g\) can be described as:
+\[l_{i,g} = L_{i,g} + \epsilon \quad\quad \epsilon \sim N(0,\sigma_{L,i,g}^2)\]
+where \(L_{i,g}\) is the sex-specific expected length at age, calculated
+using a three parameter von Bertalanffy function, modified to
+incorporate length at birth:
+\[L_{i,g}(a) = L_0 + (L_{\infty,g}-L_0)(1-e^{-K_{g}\cdot a_{i,g}})\]
+where \(L_\infty\) is asymptotic length, \(L_0\) is length at birth,
+\(K\) is the growth coefficient, and \(a_{i,g}\) is true age. Finally
+\(\sigma_{L,i,g}\) is the standard deviation of the normally distributed
+process error. \(L_\infty\) and \(K\) were assumed to be different for
+males and females, given that size differences between sexes are
+well-documented for this genus, while \(L_0\) and \(\sigma_{L,i,g}\)
+were assumed to be the same for both sexes. As per Cope and Punt (2007),
+the coefficient of variation of the process error, \(CV_L\) was assumed
+to be proportional to length, such that for any individual
+\(\sigma_{L,i,g} = CV_L L_{i,g}\). That is, there is more individual
+variability in length at age for larger sharks.
+
+Ageing error caused by the inconsistent interpretation of growth zones
+by different readers was explicitly incorporated in the model as a
+random effect by assuming that observed ages and true ages were linked
+through the following relationship:
+\[A_{i,j} = a_i + \epsilon_{a,ij} \quad \quad \epsilon_{a,ij} \sim N(0,\sigma_{a,i}^2)\]
+where \(A_{i,j}\) is the observed age of individual \emph{i} by reader
+\emph{j}, \(a_i\) is true age, and \(\sigma_{a,i}\) is the standard
+deviation of ageing error. The coefficient of variation of ageing error
+was assumed to be constant, such that, for any individual
+\(\sigma_{a,i} = CV_{a}a_i\), with \(CV_a\) calculated outside the model
+and approximated by the formula:
+\[\hat{CV_a} = \sqrt{\frac{\sum_{i=1}^{n}CV_{A,i}^2}{n}}\] where
+\(CV_{A,i}\) is the age coefficient of variation for individual \emph{i}
+(Cope and Punt 2007).
+
+Lastly, additional information on the \(L_0\) parameter was available
+from neonates sampled in Moreton Bay that were known to have a true age
+of zero, based on the presence of an unhealed umbilical scar. These
+individuals were included in the statistical model through the
+relationship
+\[L_{0,i} = L_0 + \epsilon \quad \quad \epsilon \sim N(0,\sigma_{L,i}^2)\]
+where \(L_{0,i}\) were the lengths of age zero individuals, and where
+\(CV_L\) was again assumed proportional to length. The final model
+contained a total of six parameters, and estimation was undertaken using
+maximum likelihood with Template Model Builder (Kristensen \emph{et al.}
+2016).
+
+Validation of growth using traditional techniques (e.g.~fluorochrome
+chemical marking, centrum edge methods) was not possible due to small
+sample sizes and lack of suitable sampling across different months
+within years. Indirect validation of early growth was undertaken by
+comparing the fitted vertebral growth curve against monthly length
+frequency of neonate and young juvenile sharks in Moreton Bay.
+
+\hypertarget{reproductive-biology}{%
+\subsubsection{Reproductive biology}\label{reproductive-biology}}
+
+The relationship between weight, \emph{W}, and total length, \emph{L},
+was modelled using a power curve
+\(W(L) = \beta_1\cdot L^{\beta_2}e^{\epsilon}\). Parameters \(\beta_1\),
+\(\beta_2\) and \(\sigma\) were obtained using maximum likelihood
+estimation from the log-linear regression model
+\(ln(W_i) = ln(\beta_1) + \beta_2\cdot ln(L_i) + \epsilon\), where
+\(ln(\beta_1)\) and \(\beta_2\) correspond to the intercept and slope,
+and where \(\epsilon \sim N(0, \sigma^2)\) is a normally distributed
+random variable with variance \(\sigma^2\). Sex and the interaction of
+sex and length were included as factors in the model to test whether
+weight-at-length differed between males and females.
+
+Maturity status was determined macroscopically using a three-stage
+classification of male clasper condition (C = 1-3) and a six-stage
+classification of female uterus condition (U = 1-6) (Table 1) (Walker
+2007). Maturity stage data were then converted to binary form (immature
+= 0, mature = 1) for statistical analysis. The relationship between
+maturity stage and length was determined using a Generalised Linear
+Model of the form
+\[ P_i \sim Bernoulli(p_i) \quad\quad p_i = logit(\beta_3 + \beta_4 L_i)^{-1}\]
+where the probability of an individual being mature, \(P_i\), was
+modelled as a Bernoulli random variable, and parameters \(\beta_3\) and
+\(\beta_4\) were estimated using maximum likelihood. The lengths at
+which 50\% and 95\% of the population was mature were further derived
+as:
+\[L_{50} = -\beta_3/\beta_4 \quad\quad L_{95}=\frac{1}{\beta_4}log(19)-\beta_3/\beta_4\]
+Bootstrapping (\emph{n} = 1000) was done on the derived parameters
+(\(L_{50}\) and \(L_{95}\)) to estimate standard errors and calculate
+confidence intervals. Maturity analyses were undertaken for both sexes
+separately and combined, and also undertaken for age by substituting
+with length in the above equation. The male maturation process was
+further investigated by modelling the development of clasper length as a
+function of length (see Supplementary Material).
+
+For each analysis a graphical comparison was done for \emph{C. tilstoni}
+using parameters estimated from previous studies (Stevens and Wiley
+1986; Davenport and Stevens 1988; Harry \emph{et al.} 2013), and using
+raw data presented in Harry \emph{et al.} (2013) for the Qld population
+(see Fig. 1 for location of previous studies).
+
+\hypertarget{demographic-analysis}{%
+\subsubsection{Demographic analysis}\label{demographic-analysis}}
+
+Comparative population dynamics was investigated using an age- and
+sex-structured demographic model based on Lotka's generalized equation
+(Xiao and Walker 2000; Xiao 2002):
+\[1 = \int_{a_0}^{\infty}R(a)\beta(a)e^{\int_{a_0}^{a}\Lambda_{g, N}(s) ds}da\]
+where \(a\) is age (years) and \(a_0\) = 0 is the age at birth,
+\(R(a) = R\) is age-specific embryonic sex-ratio (assumed to be
+constant), \(\beta(a)\) is age-specific female reproductive rate, and
+\(\Lambda_{g, N}\) is the intrinsic rate of population decrease with age
+of sex \emph{g} in numbers (year\(^{-1}\)). The age-specific female
+reproductive rate was further given by:
+\[\beta(a) = (\beta_5 + \beta_6 \cdot L_f(a)) \times P_{Max} \times (1 - exp( -ln(19)(\frac{a-A_{50}}{A_{95} - A_{95}})))^{-1}\]
+where \(\beta_5\) and \(\beta_6\) are the intercept and slope of a
+linear regression of fecundity at length and where \(P_{Max}\) is the
+proportion of females in the population that reproduce annually.
+
+\(\Lambda_{g,N}\) can be solved numerically if \(R(a)\) and \(\beta(a)\)
+are known, and is a measure of the gross productivity of the population
+(Xiao and Walker 2000). If female natural mortality at age, \(M_f(a)\),
+is known and under the assumption of a stable age distribution, it is
+possible to calculate the intrinsic rate of population increase with
+time, \(r\), or the net productivity of the population for both sexes
+and the gross productivity for males (Xiao and Walker 2000; Xiao 2002):
+\[\Lambda_{f,N}(a) = -(r + M_f(a))\]
+\[\Lambda_{m,N}(a) = -(r + M_m(a))\]
+
+The stable age distribution of the population, the proportion of
+individuals of sex \(g\), at age \emph{a}, in biomass was calculated as:
+\[p_{g, B}(a) = \frac{W_{g}(a)exp(\int_{a_0}^{a}\Lambda_{g, N}(s) ds)}{\int_{a_0}^{\infty}W_{g}(a)exp(\int_{a_0}^{a}\Lambda_{g, N}(s) ds)da}\]
+The mean and variance of ages in the population, in biomass, were
+further calculated as: \[\mu = \int_{a_0}^{a}(a-a_0)p(a)da\] and
+\[\sigma^2 = \int_{a_0}^{a}(a-a_0-\mu)p(a)da\]
+
+The per-generation rate of multiplication, \(R_0\), or number of
+daughters expected per female per lifetime, was calculated as:
+\[R_0 =\int_{a_0}^{\infty}R(a)\beta(a)e^{\int_{a_0}^{a}M_f(s) ds}da \]
+
+All numerical integration and optimization required in the above
+equations was done using R (R Core Team 2018).
+
+The influence of uncertainty in demographic traits on net productivity
+(\(r\)) was investigated with Monte Carlo simulation (Cortés 2002;
+Braccini \emph{et al.} 2015). For each species the demographic analysis
+was repeated 1000 times using, where possible, weight, growth, and
+maturity parameters randomly drawn from a multivariate normal
+distribution. The mean and variance-covariance matrix of these
+distributions were obtained from each of the respective best fit models
+described above. Uncertainty in reproductive frequency was incorporated
+by drawing random values of \(P_{Max}\) from a uniform distribution. A
+constant, size-based method was used to specify natural mortality
+\(M_g(a)\) in the above equations (Then \emph{et al.} 2015):
+\[M_g = 4.118 \cdot K_g^{0.73} \cdot L_{\infty,g}^{-0.33}\] Additional
+variability was added to the calculated value of \(M_g\) in each
+simulation to ensure a wide range of values were considered. Values were
+drawn from a random normal distribution with a CV of \(0.2M_g\).
+Additional details of the Monte Carlo simulation and choice of priors is
+supplied in the Supplementary Material.
+
+Finally it was necessary to clarify two issues regarding interpretation
+of the above demographic method, namely 1) the rationale behind the
+choice of \(M\), and 2) what the assumed population depletion was. As
+with most population models applied to fish, \(M\) was central to
+interpretation but unknown. Many methods exist for calculating \emph{M}
+ranging from purely theoretical to empirical (Kenchington 2014; Then
+\emph{et al.} 2015), however the choice of method is subjective. A
+common approach to dealing with this subjectivity is to average \emph{M}
+over multiple methods, although Then \emph{et al.} (2015) advise against
+this. A further problem, as noted by Pardo \emph{et al.} (2016), is that
+many of these methods are based on data for teleosts, and do not give
+reasonable values for sharks and rays. The second, interrelated issue is
+the amount of population depletion corresponding to the life history
+data used in the model (Cortés 2016). Since life history parameters
+change in response to population density (Taylor and Gallucci 2009;
+Romine \emph{et al.} 2013), unless all components of the data were
+collected simultaneously and at a population size close to zero, the
+final value of \(r\) is unlikely to reflect the maximum rate achievable,
+\(r_m\). It is arguably \(r_m\) that is of greatest interest to fishery
+managers (Pardo \emph{et al.} 2016).
+
+One benefit of the formulation of the Euler-Lotka equation used in this
+study is the explicit link between \(r\), \(\Lambda_f\), and \(M_f\)
+(Xiao and Walker 2000). For a population to be viable
+(i.e.~\(r \geq 0\)), \(M_f\) is restricted such that
+\(0 \leq M_f \leq -\Lambda_f\). Assuming that density dependent changes
+in \(r\) are predominantly mediated by changes in \emph{M} (Smith
+\emph{et al.} 1998), then gross productivity of females, \(\Lambda_f\),
+which is solely a function of reproductive characteristics and
+independent of \emph{M}, effectively gives an upper bound for both \(r\)
+and \(M\). The decision to use the method by Then \emph{et al.} (2015)
+for calculating \emph{M} was somewhat arbitrary, however it was one of
+the few methods that consistently led to plausible values for all
+populations. The values of \emph{M} generated with this method were
+slightly higher than the method used by Pardo \emph{et al.} (2016) in
+their comparative study of \(r_m\) in sharks and rays. Nonetheless,
+since most values corresponded to \textgreater{} 90\% annualised
+survival (see below), it would be reasonable to interpret them as close
+to the \(r_m\) that would occur at low population density.
+
+\hypertarget{results}{%
+\subsection{Results}\label{results}}
+
+A total of 475 samples were available for life history analysis
+including 183 females (68 - 267 cm) and 292 males (65 - 255 cm). Sharks
+from Moreton Bay were predominantly neonates and small juveniles up to
+127 cm and were captured in an approximately equal sex ratio (Fig. 2).
+Sharks caught in northern NSW by the OTLF were predominantly
+\textgreater{} 150 cm TL, and there was a bias towards males, which made
+up 76\% of samples. Ninety percent of NSW samples were obtained from
+depths between 30 and 90 m, with males caught to a maximum depth of 101
+m, and females to 128 m (Fig. S1).
+
+Of the 109 individuals sampled from NSW between 2008 and 2010 and
+characterised using mtDNA and nDNA genotyping, 54 were identified as
+purebred \emph{C. limbatus}. Sixteen individuals were hybrids that
+displayed a conflict between their mtDNA and nDNA. A further 36
+individuals were identified as possible hybrids carrying one or more
+nuclear alleles from \emph{C. tilstoni}. Finally, two individuals were
+unable to be identified and a single individual was identified as a
+purebred \emph{C. tilstoni}. Like previous studies, all individuals with
+hybrid ancestry appeared to have a \emph{C. limbatus} phenotype (Harry
+\emph{et al.} 2012; Morgan \emph{et al.} 2012), consistent with a recent
+study indicating that hybrids are introgressed (J.A.T. Morgan,
+unpublished data). Hybrid individuals were included with the analysis of
+\emph{C. limbatus} life history and the single purebred \emph{C.
+tilstoni} was removed.
+
+\hypertarget{age-and-growth}{%
+\subsubsection{Age and growth}\label{age-and-growth}}
+
+Distinct pairs of growth zones were visible in the corpus calcareum and,
+to a lesser extent, the intermedialia of sectioned vertebrae (Fig. S2).
+An age-bias plot showed discrepency between readers (Fig. S3), however
+it was not statistically significant (Bowkers test of symmetry:
+\(\chi^2\) = 35.33, d.f. = 34, \emph{P} = 0.405). Mean inter-reader CV
+was 5.2 \%. On this basis an acceptable and reproducible interpretation
+was considered to have been achieved, and further analyses proceeded
+under the assumption that each pair of growth zones corresponded to an
+annual increment.
+
+Vertebrae sections were available from a total of 102 individuals.
+Females (n = 33, 73 - 267 cm) ranged in age from 2 months to 22 years.
+Males (n = 69, 74 - 252 cm) ranged in age from 2 months to 24 years. A
+further 136 neonates collected in Moreton Bay were used for estimation
+of the \(L_0\) parameter.
+
+Growth of male and female \emph{C. limbatus} was similar until around
+three years of age (Figs 3a-b and 3e) after which females had a greater
+average length at age than males. Although absolute female growth rate
+exceeded that of males, females attained a larger asymptotic length
+(Table 2), and consequently \emph{K} was greatest for males. While males
+attained a greater maximum age than females, this possibly reflects the
+smaller sample sizes for females. The use of a CV proportional to length
+resulted in a good fit to the data, as evident from the prediction
+intervals for length at age data (Figs. 3 a \& b) and empirical \(L_0\)
+observations (Fig. 3c). Variability in length, \(CV_L\), averaged 4.9 \%
+of length (Table 2, Fig. 3d).
+
+Monthly length measurements from a \emph{C. limbatus} nursery area in
+Moreton Bay appeared to show distinct groupings corresponding to cohorts
+from 0+ to 2+ years, most evident in October and November. Neonates with
+open umbilical scars first appeared in Moreton Bay during early
+November, at which time they were clearly separable from the 0+ and 1+
+cohorts (Fig. 3f). A further seven individuals that were larger again
+were thought to belong to the 2+ cohort. In comparison to the growth
+curve fit to vertebral ages, sharks within Moreton Bay appeared to grow
+slower (Fig. 3f).
+
+\hypertarget{reproductive-biology-1}{%
+\subsubsection{Reproductive biology}\label{reproductive-biology-1}}
+
+Weight measurements were obtained from 100 females and 168 males (Fig.
+4a). The heaviest female and male weighed 67 kg and 116 kg,
+respectively. Although the heaviest individual was a male, no large
+(\textgreater{} 240 cm) or pregnant females were weighed, and it is
+likely they would exceed the weight of males of equivalent length.
+Neither sex nor the interaction of sex and length were statistically
+significant (ANOVA: d.f. = 2, 266, F = 1.444, \emph{P} = 0.2378) (Fig.
+4b, Table 2).
+
+Maturity stage was recorded for 171 females; the majority (n = 148) of
+these were immature, most of which were neonates sampled from Moreton
+Bay. The largest and oldest immature females (U = 1-2) were 208 cm and 8
+years, respectively, while the smallest and youngest mature females (U =
+3-6) were 199 cm and 7 years, respectively. Maturity stage was recorded
+for 287 males. The largest and oldest immature males (C = 1-2) were 213
+cm and 8 years, respectively, while the smallest and youngest mature
+males (C = 3) were 190 cm and 8 years, respectively. For both age and
+length, neither sex, nor the interaction with sex was statistically
+significant (Analysis of deviance - length: \(\chi\) = 0.4095, d.f. = 2,
+\emph{P} = 0.8149; Analysis of deviance - age: \(\chi\) = 1.652, d.f. =
+2, \emph{P} = 0.4377, Fig. 5a-b, Table 2). Due to the small sample size
+of mature females, it was not possible to model maternal condition and
+assess the length and age at which reproduction begins. Male clasper
+development was minimal until around 150 cm. Beyond this length claspers
+began to elongate, reaching \(CL_{50}\) at 194 cm, around the same
+length as maturity occurred (Fig. S4). Unlike \emph{C. tilstoni},
+clasper length did not reach a well-defined asymptotic length.
+
+Only 5 of the 23 mature females (U = 3-6), were pregnant (Table 3), so
+limited inferences could be made about the timing and frequency of the
+reproductive cycle. Pregnant females included three individuals at a
+similar stage of embryonic development with an overall mean embryo
+length of 44.6 cm during April, and another in June with a mean embryo
+length of 44.4 cm. Mean fecundity of females was 6.6 pups, and ranged
+from 2 to 9. The mean (\(\pm\) s.d.) length of 136 neonates from Moreton
+Bay was 73.09 \(\pm\) 3.43 cm. The mean (\(\pm\) s.d.) weight of 103
+neonates was 2.156 \(\pm\) 0.408 kg.
+
+In the four years that samples were collected from Moreton Bay, neonates
+were present from early November to early February, suggesting \emph{C.
+limbatus} has a synchronous reproductive cycle with a three-month
+pupping season from November to January. Four post-partum (U = 6)
+females were also recorded between April and June. This conflicted with
+other evidence suggestive of a synchronous reproductive cycle and it was
+thought these females might have aborted their young upon capture or
+been assigned an incorrect uterus stage. The fraction of mature females
+that were pregnant was 22\%, or 39\% if U = 6 females were included.
+Although it was not possible to determine the duration and frequency of
+reproduction, the large proportion of non-pregnant (U = 3) females
+observed suggests that it is likely to be a minimum of two years in
+duration or even longer.
+
+\hypertarget{demographic-analysis-1}{%
+\subsubsection{Demographic analysis}\label{demographic-analysis-1}}
+
+Gross population productivity of females, \(\Lambda_f\), was highest for
+\emph{C. tilstoni}, with mean values for the NT 19 \% higher than that
+of Qld and 63\% higher than \emph{C. limbatus} (Table 4). Holding all
+other variables equal, the range of possible values for \(M_f\) are thus
+\(0 \leq M_f \leq -\Lambda_f\), for a population to be viable
+(\(r \geq 0\)). Values for \(M_f\) predicted from the size-based method
+were within the lower half of plausible values (Fig. 6b); mean
+annualised survival (\(e^{-M_f}\)) ranged from 93 \% in \emph{C.
+limbatus} to 90\% in NT \emph{C. tilstoni}. Due to the high CV
+specified, a wide range of values were nonetheless included in the Monte
+Carlo simulation (Fig. 6a). In line with its higher \(M\), net
+productivity, \(r\), was higher for \emph{C. tilstoni} (Fig. 6b). The
+net productivity of the NT population was 18 \% higher than Qld and 82\%
+higher than \emph{C. limbatus}. Reproductive output, \(R_0\), was
+variable across all species, and highest on average for Qld \emph{C.
+tilstoni} with females producing, on average, 12 female pups during
+their life.
+
+Due to their smaller \(L_\infty\) and higher \(K\) (Table 2), average
+\(M\) calculated using the size-based method was higher for males than
+females (Table 4). This translated to annualised male survival being 1\%
+lower in \emph{C. limbatus} and 3\% lower in \emph{C. tilstoni}.
+Accordingly, the mean age of the population in numbers and biomass was
+always greater in females than males (Fig. 6c, Table 4). Mean age in
+both \emph{C. tilstoni} populations was 3 to 4 years, or 5 to 7 years if
+weighted by biomass. Mean age in the \emph{C. limbatus} population was
+c. 5 years, or c. 10 years if weighted by biomass. As a result of this
+difference, biomass in \emph{C. limbatus} populations is predominantly
+concentrated in lengths greater than the maximum size of \emph{C.
+tilstoni} (Fig. 6d).
+
+\hypertarget{discussion}{%
+\subsection{Discussion}\label{discussion}}
+
+\hypertarget{life-history-of-c.-limbatus}{%
+\subsubsection{\texorpdfstring{Life history of \emph{C.
+limbatus}}{Life history of C. limbatus}}\label{life-history-of-c.-limbatus}}
+
+This study is the first detailed description of the life history of
+\emph{C. limbatus} from Australian waters, where information has
+previously been difficult to obtain due to its co-occurrence with the
+morphologically similar \emph{C. tilstoni}. Aspects of the life history
+of \emph{C. limbatus} have previously been studied in many parts of its
+range including the northwest Atlantic (Castro 1996), South Africa
+(Dudley and Cliff 1993; Wintner and Cliff 1996), Indonesia (White 2007;
+Smart \emph{et al.} 2015), Senegal (Capape \emph{et al.} 2004), and,
+most comprehensively, the Gulf of Mexico (Branstetter 1987; Killam and
+Parsons 1989; Carlson \emph{et al.} 2006; Tovar-Ávila \emph{et al.}
+2009; Passerotti and Baremore 2012; Baremore and Passerotti 2013).
+Generally speaking, Australian \emph{C. limbatus} has life history
+characteristics least similar to populations in the Gulf of Mexico and
+northwest Atlantic (GOM and NWA), which are characterised by smaller
+maximum lengths that rarely exceed 200 cm. Empirical maximum lengths
+from the present study demonstrate that in Australian waters both sexes
+regularly exceed 250 cm. This is somewhat larger still than populations
+off South Africa, Indonesia, and Senegal where maximum lengths of 245 to
+247 cm were recorded (Dudley and Cliff 1993; Capape \emph{et al.} 2004;
+White 2007). The heaviest male from this study (241cm) weighed 116 kg
+and the largest female (267cm) was predicted to weigh between 89 and 153
+kg (Fig. 4a). A 221 cm, 122 kg mature non-pregnant (U = 3) female
+captured in a Qld recreational fishing tournament appears to be the
+heaviest measured specimen both in Australia and globally (Salini
+\emph{et al.} 2007).
+
+Conclusive validation of growth has not yet been achieved for any
+\emph{C. limbatus} population. Growth estimates from independent
+vertebral ageing studies in the Gulf of Mexico have consistently been
+similar (Carlson \emph{et al.} 2006; Tovar-Ávila \emph{et al.} 2009;
+Passerotti and Baremore 2012), providing some confidence that vertebral
+growth zones in this species reflect age. No validation was possible in
+the current study although a visual comparison of the monthly length
+structure from Moreton Bay suggested a slightly slower growth than was
+estimated from vertebral sections. Lengths at age of \emph{C. limbatus}
+off central eastern Australia were intermediate to South African and
+Indonesian populations (Wintner and Cliff 1996; Smart \emph{et al.}
+2015). However, noting that each of these studies are unvalidated and
+based on small sample sizes, it is probably unwise to read any
+biological significance into differences among those populations.
+Incorrect interpretation of the first growth increment or a single early
+growth zone could explain the difference between studies. The oldest
+individuals in this study were a 24 year old male and a 22 year old
+female. These maximum ages were similar to the oldest \emph{C. limbatus}
+aged from the GOM (Passerotti and Baremore 2012), a 23.5 year old male.
+Noting the potential for age underestimation in shark and ray ageing
+studies (Harry 2018), it is possible that \emph{C. limbatus} in all
+populations live longer than currently recognised.
+
+The growth modeling approach in the current study involved adapting the
+model of Cope and Punt (2007). A key feature of their model is the
+explicit incorporation of ageing error as a random effect. This is a
+useful addition for sharks and rays, which can be difficult to age
+(Goldman \emph{et al.} 2012). In this study the model was changed to
+incorporate two relevant features of \emph{C. limbatus} biology.
+Firstly, it was fit to both sexes simultaneously. This avoided
+unnecessarily estimating sex-specific parameters for \(L_0\), which was
+the same for both sexes. It also avoided estimating a sex-specific
+variance parameter, which was assumed not to differ between sexes
+either. Secondly, empirical data on \(L_0\) were included in the
+statistical model itself, and used to estimate \(L_0\) with vertebral
+ageing data jointly. This approach removes the potential bias in
+parameter estimates caused by the more common approach of fixing \(L_0\)
+at a known value (Pardo \emph{et al.} 2013).
+
+With few pregnant females sampled and no data collected on ovarian
+follicles, many aspects of reproduction remain uncertain for central
+eastern Australian \emph{C. limbatus}. The seasonal occurrence of large
+numbers of neonates in Moreton Bay between November and February (Taylor
+and Bennett 2013) indicates that reproduction is synchronous and occurs
+in summer, as is typical throughout its range (Fourmanoir 1961;
+Simpfendorfer and Milward 1993; Castro 1993). Less is known about the
+frequency of reproduction. Within both the GOM and NWA, \emph{C.
+limbatus} reproduces biennially (Castro 1996; Baremore and Passerotti
+2013). Capape \emph{et al.} (2004) also speculated that \emph{C.
+limbatus} had a biennial reproductive cycle off Senegal. Off South
+Africa, patterns in development of ovarian follicles sampled from 260
+mature females supported a three year reproductive cycle (Dudley and
+Cliff 1993). The high proportion of mature, non-pregnant females in this
+study area indicates that reproduction is at least biennial and likely
+longer. This would be consistent with other large congeners such as
+dusky, \emph{Carcharhinus obscurus} (Dudley \emph{et al.} 2005), and
+sandbar, \emph{Carcharhinus plumbeus}, sharks (Baremore and Hale 2012).
+Alternatively, sampling limitations including spatial, temporal and gear
+selectivity effects might have contributed to the low proportion of
+pregnant females observed.
+
+Despite limited data, the average fecundity of 6.6 calculated in this
+study is consistent with other populations that attain a similar maximum
+size. Mean and median litter sizes of 6.7 and 6, respectively, were
+reported in two studies off South Africa, where litter sizes ranged from
+1 to 11 (Bass \emph{et al.} 1973; Dudley and Cliff 1993). In Indonesia,
+mean litter size was 6.6 and ranged from 2 to 10 (White 2007), while off
+Senegal, mean litter size was 6.8 and ranged from 1 to 8 (Cadenat and
+Blache 1981; Capape \emph{et al.} 2004). Variability in length at birth
+is well documented in \emph{C. limbatus} (Garrick 1982; Harry \emph{et
+al.} 2012). Australian \emph{C. limbatus} are born at a slightly longer
+length to other global populations, although length and weight at birth
+was similar to the single full-term litter measured off South Africa
+(Dudley and Cliff 1993). Harry \emph{et al.} (2012) speculated that this
+larger length could be a way of reducing competition with \emph{C.
+tilstoni}, which co-occurs in some nursery areas within Australia
+(Simpfendorfer and Milward 1993).
+
+Length at maturity in Australian waters appears to be most similar to
+South Africa, where both sexes mature at \textgreater{} 200 cm, although
+robust comparison between studies is not possible due to methodological
+differences (Dudley and Cliff 1993). While male and female \emph{C.
+limbatus} in Australian waters probably differ in their length and age
+at maturity, data were insufficient to demonstrate this using
+statistical hypothesis testing, nor were there sufficient data to
+determine when females begin to reproduce. Baremore and Passerotti
+(2013), who examined length at maternity of \emph{C. limbatus} in the
+GOM, found that 50\% of females were in maternal condition at 10.1
+years. Based on the age at maturity of c. 8 years and a two to three
+year reproductive cycle, it is unlikely that females would start
+contributing to population recruitment before age 10 off central eastern
+Australia.
+
+Additional notes on the ecology of \emph{C. limbatus} are provided in
+the Supplementary Material.
+
+\hypertarget{comparative-demography-of-c.-limbatus-and-c.-tilstoni}{%
+\subsubsection{\texorpdfstring{Comparative demography of \emph{C.
+limbatus} and \emph{C.
+tilstoni}}{Comparative demography of C. limbatus and C. tilstoni}}\label{comparative-demography-of-c.-limbatus-and-c.-tilstoni}}
+
+This study confirms that the co-occurring \emph{C. limbatus} and
+\emph{C. tilstoni} differ substantially in many aspects of their life
+histories, despite their morphological similarities. At birth, \emph{C.
+limbatus} are approximately the same size as one year old \emph{C.
+tilstoni} (Figs 3 a \& b). Length at age between species further
+diverges over ontogeny with \emph{C. limbatus} remaining larger, on
+average, throughout life (Fig. 3f). Although weight at length is similar
+between species (Fig. 4b), there are large differences in maximum body
+size, with the heaviest \emph{C. limbatus} more than three times the
+weight of the heaviest \emph{C. tilstoni}. Maturation of \emph{C.
+limbatus} begins at lengths well above the maximum length attained by
+\emph{C. tilstoni} (Fig. 5c), which also matures and reproduces at a
+younger age (Fig. 5d). The larger \emph{C. limbatus} has a higher mean
+fecundity (Table 2), but likely reproduces less frequently. Based on a
+long-term tagging study, \emph{C. tilstoni} is known to live to at least
+20 years (Last and Stevens 2009; Harry \emph{et al.} 2013). Vertebral
+ageing from this study suggested \emph{C. limbatus} live to 24 years.
+Given their substantially larger size and likely lower mortality, as
+well as the potential for age underestimation (Harry 2018), it is
+reasonable to surmise that \emph{C. limbatus} lives longer than \emph{C.
+tilstoni}.
+
+Differences in life history between the Qld and NT \emph{C. tilstoni}
+populations are summarised in Harry \emph{et al.} (2013). While many
+aspects of their biology are similar, Harry \emph{et al.} (2013) found
+that the Qld population matured at an older age and larger size. Growth
+of the NT population was faster than Qld and, although not reflected in
+growth parameters, the Qld population attains a slightly larger length.
+Since fecundity is proportional to length and length at birth is similar
+between populations, the lower average fecundity of the NT population is
+likely a result of mature females being smaller, on average, than those
+from Qld.
+
+The values of \(r\) calculated in this study suggest that both \emph{C.
+limbatus} and \emph{C. tilstoni} are moderately productive species
+relative to other sharks and rays (Simpfendorfer and Dulvy 2017).
+Relative to each other however, \emph{C. tilstoni} has a much higher
+productivity than \emph{C. limbatus}, meaning these species are likely
+to differ in their response to exploitation. Further confounding these
+differences are the divergent size structures of the two species. When
+biomass is plotted against length, the fundamental differences between
+the life histories of the two species become particularly apparent (Fig.
+6d). Whereas the smaller \emph{C. tilstoni} completes its entire life
+cycle within nearshore and coastal habitats, this habitat is used only
+transitionally by \emph{C. limbatus} as juveniles, with the majority of
+the population biomass occurring further offshore.
+
+These differences in demography have important implications for the
+numerous fisheries that capture this species complex within Australian
+waters and should be considered in the formulation of appropriate
+management strategies. For size-selective gillnet fisheries capturing
+these species, it is evident that the majority of the \emph{C. limbatus}
+biomass will be less vulnerable to fishing. Viewed in the historical
+context, large-scale, historical exploitation by the Taiwanese fleet
+would probably have had minimal impact on the adult biomass of \emph{C.
+limbatus}, perhaps explaining the species' increase in relative
+abundance in the subsequent decades (Ovenden \emph{et al.} 2010).
+Likewise, the impacts of management measures such as size limits will
+affect each species differently. For example, in Qld where sharks are
+often captured by recreational fishers (Lynch \emph{et al.} 2010), the
+upper size limit of 1.5m for this sector would presumably be ineffective
+at reducing mortality on \emph{C. tilstoni} and effective for \emph{C.
+limbatus}. Thus, despite the latter being inherently more susceptible to
+exploitation, \emph{C. tilstoni} will likely have a greater exposure to
+inshore mixed-species fisheries.
+
+At present, all Australian jurisdictions report \emph{C. tilstoni} and
+\emph{C. limbatus} together. Morphological similarities aside, there is
+little, if any, justification for such grouping. Given the likely
+divergent responses to exploitation of the two species, it is likely
+that any inferences from catch or catch rates would be invalid, masking
+underlying population trends. Currently, exploitation of blacktip shark
+is low across northern Australia, however historically all regions and
+stocks have sporadically experienced periods of high catch driven by
+cyclical market trends. Any future attempts to develop these resources
+should acknowledge the differences between these species and ensure
+appropriate management measures are in place that include routine
+monitoring of relative abundance.
+
+\hypertarget{acknowledgements}{%
+\subsection{Acknowledgements}\label{acknowledgements}}
+
+The authors are indebted to the efforts of the Qld and NSW commercial
+shark fishers who enabled this research, as well as the scientific
+observers and laboratory staff from the NSW Department of Primary
+Industries who assisted in sample collection and analysis. Thank you to
+DS Waltrick and LFN Waltrick for your support and encouragement. This
+research was carried out using pre-existing data from completed research
+projects and as such did not receive any specific funding.
+
+\hypertarget{conflicts-of-interest}{%
+\subsection{Conflicts of Interest}\label{conflicts-of-interest}}
+
+The authors declare no conflicts of interest.
+
+\newpage
+
+\hypertarget{references}{%
+\subsection*{References}\label{references}}
+\addcontentsline{toc}{subsection}{References}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-baremore_reproduction_2012}{}%
+Baremore IE, Hale LF (2012) Reproduction of the Sandbar Shark in the
+Western North Atlantic Ocean and Gulf of Mexico. \emph{Marine and
+Coastal Fisheries} \textbf{4}, 560--572.
+doi:\href{https://doi.org/10.1080/19425120.2012.700904}{10.1080/19425120.2012.700904}.
+
+\leavevmode\hypertarget{ref-baremore_reproduction_2013}{}%
+Baremore IE, Passerotti MS (2013) Reproduction of the Blacktip Shark in
+the Gulf of Mexico. \emph{Marine and Coastal Fisheries} \textbf{5},
+127--138.
+doi:\href{https://doi.org/10.1080/19425120.2012.758204}{10.1080/19425120.2012.758204}.
+
+\leavevmode\hypertarget{ref-bass_sharks_1973}{}%
+Bass AJ, D'Aubrey JD, Kistnasamy N (1973) Sharks of the east coast of
+southern Africa. 1. The genus \emph{Carcharhinus (Carcharhinidae)}.
+Oceanographic Research Institute, 33. (Durban)
+
+\leavevmode\hypertarget{ref-boomer_genetic_2010}{}%
+Boomer JJ, Peddemors V, Stow AJ (2010) Genetic data show that
+\emph{Carcharhinus tilstoni} is not confined to the tropics,
+highlighting the importance of a multifaceted approach to species
+identification. \emph{Journal of Fish Biology} \textbf{77}, 1165--1172.
+doi:\href{https://doi.org/10.1111/j.1095-8649.2010.02770.x}{10.1111/j.1095-8649.2010.02770.x}.
+
+\leavevmode\hypertarget{ref-braccini_displaying_2015}{}%
+Braccini M, Brooks EN, Wise B, McAuley R (2015) Displaying uncertainty
+in the biological reference points of sharks. \emph{Ocean Coastal
+Management} \textbf{116}, 143--149.
+doi:\href{https://doi.org/10.1016/j.ocecoaman.2015.07.014}{10.1016/j.ocecoaman.2015.07.014}.
+
+\leavevmode\hypertarget{ref-bradshaw_more_2013}{}%
+Bradshaw CJ, Field IC, McMahon CR, Johnson GJ, Meekan MG, Buckworth RC
+(2013) More analytical bite in estimating targets for shark harvest.
+\emph{Marine Ecology-Progress Series} \textbf{488}, 221--232.
+
+\leavevmode\hypertarget{ref-brander_disappearance_1981}{}%
+Brander K (1981) Disappearance of common skate \emph{Raia batis} from
+Irish Sea. \emph{Nature} \textbf{290}, 48--49.
+doi:\href{https://doi.org/10.1038/290048a0}{10.1038/290048a0}.
+
+\leavevmode\hypertarget{ref-branstetter_age_1987}{}%
+Branstetter S (1987) Age and Growth-Estimates for Blacktip,
+\emph{Carcharhinus limbatus}, and Spinner, \emph{C. brevipinna,} Sharks
+from the Northwestern Gulf of Mexico. \emph{Copeia} 964--974.
+
+\leavevmode\hypertarget{ref-broadhurst_temporal_2014}{}%
+Broadhurst MK, Butcher PA, Millar RB, Marshall JE, Peddemors VM (2014)
+Temporal hooking variability among sharks on south-eastern Australian
+demersal longlines and implications for their management. \emph{Global
+Ecology and Conservation} \textbf{2}, 181--189.
+doi:\href{https://doi.org/10.1016/j.gecco.2014.09.005}{10.1016/j.gecco.2014.09.005}.
+
+\leavevmode\hypertarget{ref-cadenat_requins_1981}{}%
+Cadenat J, Blache J (1981) `Requins de Méditerranée et l'Atlantique
+(plus particulièrement de la côte occidentale d'Afrique).' (ORSTOM:
+Paris)
+
+\leavevmode\hypertarget{ref-capape_reproductive_2004}{}%
+Capape C, Seck AA, Diatta Y, Reynaud C, Hemida F, Zaouali J (2004)
+Reproductive biology of the blacktip shark, \emph{Carcharhinus limbatus}
+(Chondrichthyes : Carcharhinidae) off west and north African coasts.
+\emph{Cybium} \textbf{28}, 275--284.
+
+\leavevmode\hypertarget{ref-carlson_differences_2006}{}%
+Carlson JK, Sulikowski JR, Baremore IE (2006) Do differences in life
+history exist for blacktip sharks, \emph{Carcharhinus limbatus}, from
+the United States South Atlantic Bight and Eastern Gulf of Mexico?
+\emph{Environmental Biology of Fishes} \textbf{77}, 279--292.
+
+\leavevmode\hypertarget{ref-castro_shark_1993}{}%
+Castro JI (1993) The shark nursery of Bulls Bay, South-Carolina, with a
+review of the shark nurseries of the southeastern coast of the
+United-States. \emph{Environmental Biology of Fishes} \textbf{38},
+37--48.
+
+\leavevmode\hypertarget{ref-castro_biology_1996}{}%
+Castro JI (1996) Biology of the blacktip shark, \emph{Carcharhinus}
+\emph{Limbatus}, off the southeastern United States. \emph{Bulletin of
+Marine Science} \textbf{59}, 508--522.
+doi:\href{https://doi.org/10.1007/s10641-006-9129-x}{10.1007/s10641-006-9129-x}.
+
+\leavevmode\hypertarget{ref-compagno_sharks_1984}{}%
+Compagno LJV (1984) Sharks of the world. An annotated and illustrated
+catalogue of shark species known to date. FAO species catalogue,
+Hexanchiformes to Lamniformes. FAO Fisheries Synopsis 125 Vol. 4, Part
+1.
+
+\leavevmode\hypertarget{ref-compagno_sharks_1988}{}%
+Compagno LJV (1988) `Sharks of the order Carcharhiniformes.' (Princeton
+University Press: New Jersey)
+
+\leavevmode\hypertarget{ref-cope_admitting_2007}{}%
+Cope JM, Punt AE (2007) Admitting ageing error when fitting growth
+curves: An example using the von Bertalanffy growth function with random
+effects. \emph{Canadian Journal of Fisheries and Aquatic Sciences}
+\textbf{64}, 205--218.
+
+\leavevmode\hypertarget{ref-cortes_incorporating_2002}{}%
+Cortés E (2002) Incorporating uncertainty into demographic modeling:
+Application to shark populations and their conservation.
+\emph{Conservation Biology} \textbf{16}, 1048--1062.
+doi:\href{https://doi.org/10.1046/j.1523-1739.2002.00423.x}{10.1046/j.1523-1739.2002.00423.x}.
+
+\leavevmode\hypertarget{ref-cortes_perspectives_2016}{}%
+Cortés E (2016) Perspectives on the intrinsic rate of population growth.
+\emph{Methods in Ecology and Evolution} \textbf{7}, 1136--1145.
+doi:\href{https://doi.org/10.1111/2041-210X.12592}{10.1111/2041-210X.12592}.
+
+\leavevmode\hypertarget{ref-davenport_age_1988}{}%
+Davenport S, Stevens JD (1988) Age and growth of two commercially
+important sharks (\emph{Carcharhinus tilstoni} and \emph{C. sorrah})
+from Northern Australia. \emph{Australian Journal of Marine and
+Freshwater Research} \textbf{39}, 417--433.
+doi:\href{https://doi.org/10.1071/MF9880417}{10.1071/MF9880417}.
+
+\leavevmode\hypertarget{ref-dudley_sharks_1993}{}%
+Dudley SFJ, Cliff G (1993) Sharks caught in the protective gill nets off
+Natal, South-Africa 7. The blacktip shark \emph{Carcharhinus limbatus}
+(Valenciennes). \emph{South African Journal of Marine Science}
+\textbf{13}, 237--254.
+
+\leavevmode\hypertarget{ref-dudley_sharks_2005}{}%
+Dudley SFJ, Cliff G, Zungu MP, Smale MJ (2005) Sharks caught in the
+protective gill nets off KwaZulu-Natal, South Africa. 10. The dusky
+shark \emph{Carcharhinus obscurus} (Lesueur 1818). \emph{African Journal
+of Marine Science} \textbf{27}, 107--127.
+
+\leavevmode\hypertarget{ref-dulvy_fishery_2000}{}%
+Dulvy NK, Metcalfe JD, Glanville J, Pawson MG, Reynolds JD (2000)
+Fishery stability, local extinctions, and shifts in community structure
+in skates. \emph{Conservation Biology} \textbf{14}, 283--293.
+doi:\href{https://doi.org/10.1046/j.1523-1739.2000.98540.x}{10.1046/j.1523-1739.2000.98540.x}.
+
+\leavevmode\hypertarget{ref-ebert_resurrection_2010}{}%
+Ebert DA, White WT, Goldman KJ, Compagno LJV, Daly-Engel TS, Ward RD
+(2010) Resurrection and redescription of \emph{Squalus suckleyi}
+(Girard, 1854) from the North Pacific, with comments on the
+\emph{Squalus acanthias} subgroup (Squaliformes: Squalidae).
+\emph{Zootaxa} 22--40.
+
+\leavevmode\hypertarget{ref-field_changes_2012}{}%
+Field IC, Buckworth RC, Yang G-J, Meekan MG, Johnson G, Stevens JD,
+Pillans RD, McMahon CR, Bradshaw CJ (2012) Changes in size distributions
+of commercially exploited sharks over 25 years in northern Australia
+using a Bayesian approach. \emph{Fisheries Research} \textbf{125},
+262--271.
+doi:\href{https://doi.org/10.1016/j.fishres.2012.03.005}{10.1016/j.fishres.2012.03.005}.
+
+\leavevmode\hypertarget{ref-fourmanoir_requins_1961}{}%
+Fourmanoir P (1961) Requins de la côte ouest de Madagascar.
+\emph{Mémoires de l'Institut Scientifique de Madagascar Série F:
+Océanographie} \textbf{4}, 3--81.
+
+\leavevmode\hypertarget{ref-garrick_sharks_1982}{}%
+Garrick JAF (1982) Sharks of the genus \emph{Carcharhinus} NOAA
+Technical Report NMFS Circular 445.
+
+\leavevmode\hypertarget{ref-geraghty_age_2013}{}%
+Geraghty PT, Macbeth WG, Harry AV, Bell JE, Yerman MN, Williamson JE
+(2013) Age and growth parameters for three heavily exploited shark
+species off temperate eastern Australia. \emph{ICES Journal of Marine
+Science: Journal du Conseil} fst164.
+doi:\href{https://doi.org/10.1093/icesjms/fst164}{10.1093/icesjms/fst164}.
+
+\leavevmode\hypertarget{ref-goldman_assessing_2012}{}%
+Goldman KJ, Cailliet GM, Andrews AH, Natanson LJ (2012) Assessing the
+age and growth of chondrichthyan fishes. `Biology of Sharks and Their
+Relatives, Second Edition'. (Eds JC Carrier, JA Musick, MR Heithaus) pp.
+423--451. (CRC Press: New York)
+
+\leavevmode\hypertarget{ref-harry_evidence_2018}{}%
+Harry AV (2018) Evidence for systemic age underestimation in shark and
+ray ageing studies. \emph{Fish and Fisheries} \textbf{19}, 185--200.
+doi:\href{https://doi.org/10.1111/faf.12243}{10.1111/faf.12243}.
+
+\leavevmode\hypertarget{ref-harry_comparison_2012}{}%
+Harry AV, Morgan JAT, Ovenden JR, Tobin AJ, Welch DJ, Simpfendorfer CA
+(2012) Comparison of the reproductive ecology of two sympatric blacktip
+sharks (\emph{Carcharhinus limbatus} and \emph{Carcharhinus tilstoni})
+off north-eastern Australia with species identification inferred from
+vertebral counts. \emph{Journal of Fish Biology}.
+doi:\href{https://doi.org/10.1111/j.1095-8649.2012.03400.x}{10.1111/j.1095-8649.2012.03400.x}.
+
+\leavevmode\hypertarget{ref-harry_age_2013}{}%
+Harry AV, Tobin AJ, Simpfendorfer CA (2013) Age, growth and reproductive
+biology of the spot-tail shark, \emph{Carcharhinus sorrah}, and the
+Australian blacktip shark, \emph{Carcharhinus tilstoni}, from the Great
+Barrier Reef World Heritage Area, north-eastern Australia. \emph{Marine
+and Freshwater Research} \textbf{64}, 277--293.
+doi:\href{https://doi.org/10.1071/MF12142}{10.1071/MF12142}.
+
+\leavevmode\hypertarget{ref-harry_evaluating_2011}{}%
+Harry AV, Tobin AJ, Simpfendorfer CA, Welch DJ, Mapleston A, White J,
+Williams AJ, Stapley J (2011) Evaluating catch and mitigating risk in a
+multi-species, tropical, inshore shark fishery within the Great Barrier
+Reef World Heritage Area. \emph{Marine and Freshwater Research}
+\textbf{62}, 710--721.
+doi:\href{https://doi.org/10.1071/MF10155}{10.1071/MF10155}.
+
+\leavevmode\hypertarget{ref-hatfield_ecological_1999}{}%
+Hatfield T, Schluter D (1999) Ecological speciation in sticklebacks:
+Environment-dependent hybrid fitness. \emph{Evolution} \textbf{53},
+866--873.
+doi:\href{https://doi.org/10.1111/j.1558-5646.1999.tb05380.x}{10.1111/j.1558-5646.1999.tb05380.x}.
+
+\leavevmode\hypertarget{ref-hoenig_analyzing_1995}{}%
+Hoenig JM, Morgan MJ, Brown CA (1995) Analyzing differences between two
+age-determination methods by tests of symmetry. \emph{Canadian Journal
+of Fisheries and Aquatic Sciences} \textbf{52}, 364--368.
+doi:\href{https://doi.org/10.1139/f95-038}{10.1139/f95-038}.
+
+\leavevmode\hypertarget{ref-iglesias_taxonomic_2010}{}%
+Iglésias SP, Toulhoat L, Sellos DY (2010) Taxonomic confusion and market
+mislabelling of threatened skates: Important consequences for their
+conservation status. \emph{Aquatic Conservation: Marine and Freshwater
+Ecosystems} \textbf{20}, 319--333.
+
+\leavevmode\hypertarget{ref-johnson_novel_2017}{}%
+Johnson GJ, Buckworth RC, Lee H, Morgan JAT, Ovenden JR, McMahon CR
+(2017) A novel field method to distinguish between cryptic carcharhinid
+sharks, Australian blacktip shark \emph{Carcharhinus tilstoni} and
+common blacktip shark \emph{C. limbatus}, despite the presence of
+hybrids. \emph{Journal of Fish Biology} \textbf{90}, 39--60.
+doi:\href{https://doi.org/10.1111/jfb.13102}{10.1111/jfb.13102}.
+
+\leavevmode\hypertarget{ref-kenchington_natural_2014}{}%
+Kenchington TJ (2014) Natural mortality estimators for
+information-limited fisheries. \emph{Fish and Fisheries} \textbf{15},
+533--562.
+doi:\href{https://doi.org/10.1111/faf.12027}{10.1111/faf.12027}.
+
+\leavevmode\hypertarget{ref-killam_age_1989}{}%
+Killam KA, Parsons GR (1989) Age and Growth of the Blacktip Shark,
+\emph{Carcharhinus limbatus}, near Tampa Bay, Florida. \emph{Fishery
+Bulletin} \textbf{87}, 845--857.
+
+\leavevmode\hypertarget{ref-kristensen_tmb:_2016}{}%
+Kristensen K, Nielsen A, Berg CW, Skaug H, Bell BM (2016) TMB: Automatic
+Differentiation and Laplace Approximation. \emph{Journal of Statistical
+Software} \textbf{70}, 1--21.
+doi:\href{https://doi.org/10.18637/jss.v070.i05}{10.18637/jss.v070.i05}.
+
+\leavevmode\hypertarget{ref-last_sharks_2009}{}%
+Last PR, Stevens JD (2009) `Sharks and rays of Australia.' (CSIRO
+Publishing: Collingwood)
+
+\leavevmode\hypertarget{ref-lavery_genetic_1991}{}%
+Lavery S, Shaklee JB (1991) Genetic evidence for separation of two
+sharks, \emph{Carcharhinus limbatus} and \emph{C. tilstoni}, from
+Northern Australia. \emph{Marine Biology} \textbf{108}, 1--4.
+doi:\href{https://doi.org/10.1007/bf01313464}{10.1007/bf01313464}.
+
+\leavevmode\hypertarget{ref-lyle_mercury_1984}{}%
+Lyle JM (1984) Mercury concentrations in four carcharhinid and three
+hammerhead sharks from coastal waters of the Northern Territory.
+\emph{Marine and Freshwater Research} \textbf{35}, 441--451.
+doi:\href{https://doi.org/10.1071/MF9840441}{10.1071/MF9840441}.
+
+\leavevmode\hypertarget{ref-lynch_implications_2010}{}%
+Lynch AJ, Sutton SG, Simpfendorfer CA (2010) Implications of
+recreational fishing for elasmobranch conservation in the Great Barrier
+Reef Marine Park. \emph{Aquatic Conservation: Marine and Freshwater
+Ecosystems} \textbf{20}, 312--318.
+
+\leavevmode\hypertarget{ref-macbeth_observer-based_2009}{}%
+Macbeth WG, Geraghty PT, Peddemors VM, Gray CA (2009) Observer-based
+study of targeted commercial fishing for large shark species in waters
+off northern New South Wales. Cronulla Fisheries Research Centre of
+Excellence, Industry \& Investment NSW, (Cronulla)
+
+\leavevmode\hypertarget{ref-marshall_redescription_2009}{}%
+Marshall AD, Compagno LJV, Bennett MB (2009) Redescription of the genus
+\emph{Manta} with resurrection of \emph{Manta alfredi} (Krefft, 1868)
+(Chondrichthyes; Myliobatoidei; Mobulidae). \emph{Zootaxa} 1--28.
+
+\leavevmode\hypertarget{ref-millington_prospects_1981}{}%
+Millington P, Walter D (1981) Prospects for Australian fishermen in
+northern gillnet fishery. \emph{Australian Fisheries} \textbf{40}, 3--8.
+
+\leavevmode\hypertarget{ref-morgan_detection_2012}{}%
+Morgan JA, Harry AV, Welch DJ, Street R, White J, Geraghty PT, Macbeth
+WG, Tobin A, Simpfendorfer CA, Ovenden JR (2012) Detection of
+interspecies hybridisation in Chondrichthyes: Hybrids and hybrid
+offspring between Australian (\emph{Carcharhinus tilstoni}) and common
+(\emph{C. limbatus}) blacktip shark found in an Australian fishery.
+\emph{Conservation Genetics} \textbf{13}, 455--463.
+doi:\href{https://doi.org/10.1007/s10592-011-0298-6}{10.1007/s10592-011-0298-6}.
+
+\leavevmode\hypertarget{ref-morgan_mitochondrial_2011}{}%
+Morgan JAT, Welch DJ, Harry AV, Street R, Broderick D, Ovenden JR (2011)
+A mitochondrial species identification assay for Australian blacktip
+sharks (\emph{Carcharhinus tilstoni}, \emph{C. limbatus} and \emph{C.
+amblyrhynchoides}) using real-time PCR and high-resolution melt
+analysis. \emph{Molecular Ecology Resources} \textbf{11}, 813--819.
+doi:\href{https://doi.org/10.1111/j.1755-0998.2011.03023.x}{10.1111/j.1755-0998.2011.03023.x}.
+
+\leavevmode\hypertarget{ref-ogle_fsa:_2017}{}%
+Ogle DH (2017) `FSA: Fisheries Stock Analysis. R package version 0.8.8.'
+
+\leavevmode\hypertarget{ref-ovenden_towards_2010}{}%
+Ovenden JR, Morgan JAT, Kashiwaga T, Broderick D, Salini J (2010)
+Towards better management of Australia's shark fishery: Genetic analyses
+reveal unexpected ratios of cryptic blacktip species \emph{Carcharhinus
+tilstoni} and \emph{C. limbatus}. \emph{Marine and Freshwater Research}
+\textbf{61}, 253--262.
+
+\leavevmode\hypertarget{ref-pardo_avoiding_2013}{}%
+Pardo SA, Cooper AB, Dulvy NK (2013) Avoiding fishy growth curves.
+\emph{Methods in Ecology and Evolution} \textbf{4}, 353--360.
+doi:\href{https://doi.org/10.1111/2041-210x.12020}{10.1111/2041-210x.12020}.
+
+\leavevmode\hypertarget{ref-pardo_maximum_2016}{}%
+Pardo SA, Kindsvater HK, Reynolds JD, Dulvy NK (2016) Maximum intrinsic
+rate of population increase in sharks, rays, and chimaeras: The
+importance of survival to maturity. \emph{Canadian Journal of Fisheries
+and Aquatic Sciences} \textbf{73}, 1159--1163.
+doi:\href{https://doi.org/10.1139/cjfas-2016-0069}{10.1139/cjfas-2016-0069}.
+
+\leavevmode\hypertarget{ref-passerotti_updates_2012}{}%
+Passerotti MS, Baremore IE (2012) Updates to age and growth parameters
+for blacktip shark, \emph{Carcharhinus limbatus} , in the Gulf of
+Mexico. SEDAR, (North Charleston, SC)
+
+\leavevmode\hypertarget{ref-quattro_sphyrna_2013}{}%
+Quattro JM, Driggers WB, Grady JM (2013) \emph{Sphyrna gilberti sp.
+nov}., A new hammerhead shark (Carcharhiniformes, Sphyrnidae) from the
+western Atlantic Ocean. \emph{Zootaxa} \textbf{3702}, 159--178.
+
+\leavevmode\hypertarget{ref-rcoreteam_r:_2018}{}%
+R Core Team (2018) `R: A Language and Environment for Statistical
+Computing.' (R Foundation for Statistical Computing: Vienna, Austria)
+
+\leavevmode\hypertarget{ref-romine_compensatory_2013}{}%
+Romine JG, Musick JA, Johnson RA (2013) Compensatory growth of the
+sandbar shark in the western North Atlantic including the Gulf of
+Mexico. \emph{Marine and Coastal Fisheries} \textbf{5}, 189--199.
+doi:\href{https://doi.org/10.1080/19425120.2013.793631}{10.1080/19425120.2013.793631}.
+
+\leavevmode\hypertarget{ref-salini_northern_2007}{}%
+Salini J, McAuley R, Blaber S, Buckworth R, Chidlow J, Gribble N,
+Ovenden J, Peverell S, Pillans R, Stevens J, Tarca C, Walker T (2007)
+Northern Australia sharks and rays: The sustainability of target and
+bycatch fisheries. Phase 2. CSIRO Marine and Atmospheric Research,
+Cleveland,
+
+\leavevmode\hypertarget{ref-simpfendorfer_bright_2017}{}%
+Simpfendorfer CA, Dulvy NK (2017) Bright spots of sustainable shark
+fishing. \emph{Current Biology} \textbf{27}, R97--R98.
+doi:\href{https://doi.org/10.1016/j.cub.2016.12.017}{10.1016/j.cub.2016.12.017}.
+
+\leavevmode\hypertarget{ref-simpfendorfer_utilisation_1993}{}%
+Simpfendorfer CA, Milward NE (1993) Utilisation of a tropical bay as a
+nursery area by sharks of the families Charcharinidae and Sphyrinidae.
+\emph{Environmental Biology of Fishes} \textbf{37}, 337--345.
+
+\leavevmode\hypertarget{ref-smart_age_2015}{}%
+Smart JJ, Chin A, Tobin AJ, Simpfendorfer CA, White WT (2015) Age and
+growth of the common blacktip shark \emph{Carcharhinus limbatus} from
+Indonesia, incorporating an improved approach to comparing regional
+population growth rates. \emph{African Journal of Marine Science}
+\textbf{37}, 177--188.
+doi:\href{https://doi.org/10.2989/1814232X.2015.1025428}{10.2989/1814232X.2015.1025428}.
+
+\leavevmode\hypertarget{ref-smith_intrinsic_1998}{}%
+Smith SE, Au DW, Show C (1998) Intrinsic rebound potentials of 26
+species of Pacific sharks. \emph{Marine and Freshwater Research}
+\textbf{49}, 663--678.
+doi:\href{https://doi.org/10.1071/MF97135}{10.1071/MF97135}.
+
+\leavevmode\hypertarget{ref-smith_morphometric_2009}{}%
+Smith WD, Bizzarro JJ, Richards VP, Nielsen J, Márquez-Flarias F, Shivji
+MS (2009) Morphometric convergence and molecular divergence: The
+taxonomic status and evolutionary history of \emph{Gymnura
+crebripunctata} and \emph{Gymnura marmorata} in the eastern Pacific
+Ocean. \emph{Journal of Fish Biology} \textbf{75}, 761--783.
+
+\leavevmode\hypertarget{ref-stevens_biology_1986}{}%
+Stevens JD, Wiley PD (1986) Biology of two commercially important
+carcharhinid sharks from northern Australia. \emph{Marine and Freshwater
+Research} \textbf{37}, 671--688.
+doi:\href{https://doi.org/10.1071/MF9860671}{10.1071/MF9860671}.
+
+\leavevmode\hypertarget{ref-taylor_size_2013}{}%
+Taylor SM, Bennett MB (2013) Size, sex and seasonal patterns in the
+assemblage of Carcharhiniformes in a sub-tropical bay. \emph{Journal of
+Fish Biology} \textbf{82}, 228--241.
+
+\leavevmode\hypertarget{ref-taylor_unconfounding_2009}{}%
+Taylor IG, Gallucci VF (2009) Unconfounding the effects of climate and
+density dependence using 60 years of data on spiny dogfish
+(\emph{Squalus acanthias}). \emph{Canadian Journal of Fisheries and
+Aquatic Sciences} \textbf{66}, 351--366.
+
+\leavevmode\hypertarget{ref-then_evaluating_2015}{}%
+Then AY, Hoenig JM, Hall NG, Hewitt DA (2015) Evaluating the predictive
+performance of empirical estimators of natural mortality rate using
+information on over 200 fish species. \emph{ICES Journal of Marine
+Science: Journal du Conseil} \textbf{72}, 82--92.
+doi:\href{https://doi.org/10.1093/icesjms/fsu136}{10.1093/icesjms/fsu136}.
+
+\leavevmode\hypertarget{ref-tillett_accuracy_2012}{}%
+Tillett BJ, Field IC, Bradshaw CJ, Johnson G, Buckworth RC, Meekan MG,
+Ovenden JR (2012) Accuracy of species identification by fisheries
+observers in a north Australian shark fishery. \emph{Fisheries Research}
+\textbf{127-128}, 109--115.
+doi:\href{https://doi.org/https://doi.org/10.1016/j.fishres.2012.04.007}{https://doi.org/10.1016/j.fishres.2012.04.007}.
+
+\leavevmode\hypertarget{ref-tovar-avila_edad_2009}{}%
+Tovar-Ávila J, Arenas-Fuentes V, Chiappa-Carrara X (2009) Edad y
+crecimiento del tiburón puntas negras, \emph{Carcharhinus limbatus}, en
+el Golfo de México. \emph{Ciencia pesquera} \textbf{17}, 48.
+
+\leavevmode\hypertarget{ref-walker_spatial_2007}{}%
+Walker TI (2007) Spatial and temporal variation in the reproductive
+biology of gummy shark \emph{Mustelus antarcticus} (Chondrichthyes :
+Triakidae) harvested off southern Australia. \emph{Marine and Freshwater
+Research} \textbf{58}, 67--97.
+doi:\href{https://doi.org/10.1071/MF06074}{10.1071/MF06074}.
+
+\leavevmode\hypertarget{ref-walters_shark_1997}{}%
+Walters CJ, Buckworth RC (1997) Shark and Spanish Mackerel stocks
+assessed. \emph{Northern Territory Fisheries Industry Council
+Newsletter} \textbf{8}, 14--15.
+
+\leavevmode\hypertarget{ref-white_catch_2007}{}%
+White WT (2007) Catch composition and reproductive biology of whaler
+sharks (Carcharhiniformes: Carcharhinidae) caught by fisheries in
+Indonesia. \emph{Journal of Fish Biology} \textbf{71}, 1512--1540.
+doi:\href{https://doi.org/10.1111/j.1095-8649.2007.01623.x}{10.1111/j.1095-8649.2007.01623.x}.
+
+\leavevmode\hypertarget{ref-white_review_2012}{}%
+White WT, Last PR (2012) A review of the taxonomy of chondrichthyan
+fishes: A modern perspective. \emph{Journal of Fish Biology}
+\textbf{80}, 901--917.
+doi:\href{https://doi.org/10.1111/j.1095-8649.2011.03192.x}{10.1111/j.1095-8649.2011.03192.x}.
+
+\leavevmode\hypertarget{ref-whitley_new_1950}{}%
+Whitley GP (1950) A new shark from north-western Australia.
+\emph{Western Australian Naturalist} \textbf{2}, 100--105.
+
+\leavevmode\hypertarget{ref-wintner_age_1996}{}%
+Wintner SP, Cliff G (1996) Age and growth determination of the blacktip
+shark, \emph{Carcharhinus limbatus}, from the east coast of South
+Africa. \emph{Fishery Bulletin} \textbf{94}, 135--144.
+
+\leavevmode\hypertarget{ref-xiao_relationship_2002}{}%
+Xiao YS (2002) Relationship among models for yield per recruit analysis,
+models for demographic analysis, and age- and time-dependent stock
+assessment models. \emph{Ecological Modelling} \textbf{155}, 95--125.
+doi:\href{https://doi.org/10.1016/S0304-3800(02)00028-5}{10.1016/S0304-3800(02)00028-5}.
+
+\leavevmode\hypertarget{ref-xiao_demographic_2000}{}%
+Xiao YS, Walker TI (2000) Demographic analysis of gummy shark
+(\emph{Mustelus antarcticus}) and school shark (\emph{Galeorhinus
+galeus}) off southern Australia by applying a generalized Lotka equation
+and its dual equation. \emph{Canadian Journal of Fisheries and Aquatic
+Sciences} \textbf{57}, 214--222.
+doi:\href{https://doi.org/10.1139/f99-224}{10.1139/f99-224}.
+
+
+\end{document}

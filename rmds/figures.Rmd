@@ -1,0 +1,417 @@
+---
+output:
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+linestretch: 2 
+header-includes:
+  - \fontsize{8}{20}
+  - \pagenumbering{gobble} 
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+# Run analyses
+source("../analysis/load_results.R")
+```
+
+## Figure legends
+Fig. 1. Map of study area showing location and source of samples. The bold region in the inset denotes the area where *Carcharhinus limbatus* were sampled from in this study. The grey-shaded regions denote sampling areas for *Carcharhinus tilstoni* in previous studies in Queensland (Qld) (Harry *et al.* 2013) and the Northern Territory (NT) (Stevens and Wiley 1986). NSW, New South Wales. 
+
+Fig. 2. Length structure and source of *C. limbatus* samples used in the present study.
+
+Fig. 3. Age and growth of *C. limbatus*. Panels (a) and (b) show length at age. Line and shaded area are the fitted growth model with 95% confidence and prediction intervals. Panel (c) shows length of neonate sharks (known age 0) used to jointly estimate length-at-birth in the growth model. Data from Qld *C. tilstoni* (Harry *et al.* 2013) are provided for comparison in panels (a), (b) and (c). Panel (d) shows growth model residuals. Panel (e) compares growth model estimates of mean length at age for *C. limbatus* and two *C. tilstoni* populations. Panel (f) compares the growth model from (a) and (b) with the length structure of neonates and juveniles from Moreton Bay. Colours denote possible cohorts. 
+
+Fig. 4. Weight at length of *C. limbatus*. Panel (a) shows mean weight at length with 95% confidence and prediction intervals estimated using log-linear regression. Panel (b) compares log-transformed weight at length with QLD *C. tilstoni* (Harry *et al.* 2013). 
+
+Fig. 5. Maturity at length and age of *C. limbatus*. Panels (a) and (b) show logistic regression models with 95% confidence intervals used to estimate length and age at maturity. Points are empirical proportion of individuals mature at length and age. Panels (c) and (d) compare length and age at 50% maturity and maternity of *C. limbatus* with two populations of *C. tilstoni* (Stevens and Wiley 1986; Davenport and Stevens 1988; Harry *et al.* 2013). 
+
+Fig. 6. Comparative demography of *C. limbatus* and *C. tilstoni*. Panel (a) is a density plot of intrinsic rate of population increase, *r*, based on 1000 Monte Carlo simulations. Panel (b) shows the mean and 95% quantiles of *r* and values assumed for natural mortality, *M*, from Monte Carlo simulation. Solid lines show how *r* varies as a function of *M* when all other variables are held equal, illustrating the range of plausible values for both quantities. Separate lines show the change when biennial or triennial reproduction is assumed for *C. limbatus*. Panels (c) and (d) are biomass-weighted stable age distributions as a function of age and length. Darker shaded regions show the proportion of mature biomass for males, and mature and maternal biomass for females. Females in maternal condition are those that would have contributed to recruitment within a given year. 
+
+\newpage
+
+
+## Figures
+
+\
+```{r fig1, fig.width = 6, fig.height = 6}
+# Get map data
+# getNOAA.bathy(lon1 = 150.5, lon2 = 155.5, lat1 = -27, lat2 = -32, 
+# resolution = 1) %>% fortify.bathy %>% write_csv("../data/bounds.csv")
+bounds <- read_csv("../data/bounds.csv")
+
+# Points for plotting
+points <- select(data, Source, Lat, Long, Depth, STL) %>% na.omit() %>%
+  add_row(Source = "QLD: 2004 - 2007", Lat = -27-24/60, Long = 153 +12/60) %>%
+  droplevels()
+  
+# Points with a coordinate system
+points2 <- st_as_sf(points, coords = c("Long", "Lat"), crs = 4326)
+
+# NSW QLD border
+
+# coast_bbox <- st_as_sf(bounds, coords = c("x", "y"), crs = 4326) %>% st_bbox()
+# coast <- st_read(here("data", "COM20111216_ELB_region.shp")) %>%
+#   st_as_sf(crs = 4326) %>% 
+#   select(STATE) %>% 
+#   filter(STATE %in% c("NSW", "QLD")) %>%
+#   group_by(STATE) %>% 
+#   st_make_valid() %>% 
+#   summarise() %>%
+#   st_set_crs(4326) %>% 
+#   st_crop(coast_bbox) %>% 
+#   st_write("../data/border.shp")
+
+coast <- st_read("../data/border.shp", quiet = TRUE)
+
+# Map inset
+aus<-map_data("world") %>% filter(region %in% "Australia")
+inset <- ggplot() + geom_polygon(data = aus, aes(x = long, y = lat, group = group), fill = "grey90",
+  col = "black", size = 0.25) + coord_equal() + 
+  theme(axis.text.x = element_blank(), axis.text.y = element_blank(), 
+  axis.ticks = element_blank(), axis.title.x = element_blank(), axis.title.y = element_blank(), panel.border =
+  element_rect(colour = "black",  fill =   "transparent"), panel.grid = element_blank(), panel.background =
+  element_rect(fill = "white"), plot.background = element_blank()) + xlim(112, 157) + ylim(-45, -8) +
+  geom_rect(aes(xmin = 150.5,xmax = 155.5, ymin = -32, ymax = -27), 
+            col = "red", fill = "red", alpha = 0, linetype = 1, size = 0.70) + 
+  geom_rect(aes(xmin = 144, xmax = 155.5, ymin = -26.5, ymax = -14),
+            col = "black", fill = "black", linetype = 1, size = 0.25, alpha = 0.05) +
+  annotate("text", x = 150, y= -11, label = "Qld", size = rel(3.5)) +
+  geom_rect(aes(xmin = 128, xmax = 141, ymin=-13, ymax = -8),
+            col = "black", fill = "black", linetype=1, size = 0.25, alpha = 0.05) +
+  annotate("text", x = 123, y = -10, label = "NT", size = rel(3.5))
+
+# Main map
+p <- ggplot() + scale_x_continuous(expand = c(0, 0)) + scale_y_continuous(expand = c(0, 0)) +
+  #geom_raster(data = bounds[bounds$z >= 0, ], aes(x = x, y = y), fill = "grey90") +
+  #geom_raster(data = bounds[bounds$z <= 0, ], aes(x = x, y = y, fill = z), guide = "none", alpha = 0.75) +
+  scale_fill_gradient2(low = "#74a9cf", mid = "#bdc9e1", high = "#f1eef6") +
+  geom_contour(data = bounds[bounds$z <=0, ], aes(x = x, y = y, z = z), 
+  colour = "grey80", size = 0.2, breaks = c(0, -50, -100, -200, -500, -1000, -2000, - 4000)) +
+  #geom_contour(data = bounds, aes(x = x, y = y, z = z), colour = "black", linetype = "solid",
+  #size = 0.25, breaks = 0, alpha = 1) + 
+  #geom_path(data = ozdata, aes(x = long, y= lat, group = state), col = "black", fill = "transparent") +
+  geom_sf(data = coast, color = "black", fill = "grey95", size = 0.25) + 
+  geom_sf(data = points2, aes(linetype = Source),  color = "transparent") +
+  geom_point(data = points, aes(x = Long, y = Lat, fill = Source, shape = Source), size = 2) + 
+  scale_fill_manual(values = c("#ffffcc", "#225ea8","#a1dab4")) + 
+  scale_shape_manual(values = c(21, 22, 23)) + 
+  guides(fill = guide_legend("Source"), colour =  guide_legend("Source"), linetype = "none") +
+  xlab("") + ylab("") + 
+  theme(legend.position = c(0.2, 0.2), 
+        legend.background = element_rect(colour = "black"),
+        legend.key = element_blank(),
+  panel.background = element_rect(fill = NA),
+  panel.border = element_rect(colour = "black", fill = "transparent"),
+  panel.grid.major = element_line(color = "transparent"), panel.grid.minor = element_blank()) +
+  annotate(geom = "text", y = -29.9, x = 151.5, label = "New South Wales", size = 5) +
+  annotate(geom = "text", y = -27.25, x = 151.5, label = "Queensland", size = 5)
+
+
+# Plot
+v1<-viewport(width = 1, height = 1, x = 0.5, y = 0.5) #plot area for the main map
+v2<-viewport(width = 0.35, height = 0.35, x = 0.35,y = 0.7) #plot area for the inset map
+print(p,vp = v1)
+print(inset,vp = v2)
+
+# Clean up environment
+rm(bounds, points, aus, inset, p, v1, v2)
+```
+\
+Fig. 1
+
+\newpage
+```{r fig2, fig.width = 8, fig.height = 3.5}
+h_lab <- group_by(data, Sex, Source) %>% summarise(n = n()) %>%
+  mutate(label = paste(Source, " (", n, ")", sep = "")) %>% ungroup %>% select(label) %>% unlist
+
+p <- ggplot(filter(data, Sex == "Female"), aes(x = STL, fill = Source)) +
+  guides(fill = guide_legend(title = NULL)) + geom_histogram(binwidth = 10, col = "black") +
+  facet_wrap(~ facet, scales = "free_y") + scale_fill_manual(values = c("#ffffcc", "#a1dab4", "#41b6c4", "#225ea8"), labels = 
+  c(h_lab[[1]], h_lab[[2]], h_lab[[3]], h_lab[[4]])) + xlab("") + ylab("Numbers") + ylim(0, 65) + xlim(50, 270) +
+  theme(legend.position = c(0.72, 0.74)) + lim_theme
+
+p1 <- ggplot(filter(data, Sex == "Male"), aes(x = STL, fill = Source)) +
+  guides(fill = guide_legend(title = NULL)) + geom_histogram(binwidth = 10, col = "black") +
+  facet_wrap(~ facet, scales = "free_y") + scale_fill_manual(values = c("#ffffcc", "#a1dab4", "#41b6c4", "#225ea8"), labels = 
+  c(h_lab[[5]], h_lab[[6]], h_lab[[7]], h_lab[[8]])) + xlab("") + ylab("") + ylim(0, 65) + xlim(50, 270) +
+  theme(legend.position = c(0.72, 0.74)) + lim_theme
+
+grid.arrange(p, p1, nrow = 1, bottom = "TL (cm)")
+
+# Clean up environment
+rm(h_lab, p, p1)
+```
+\
+Fig 2.
+
+\newpage
+
+```{r fig3, fig.width = 8, fig.height = 10}
+# Age and growth plots
+p <- ggplot(data = filter(preds, sex == "(a) Female"), aes(x = age, y = len)) + 
+  geom_ribbon(aes(ymin = plower, ymax = pupper),fill = "grey80") +
+  geom_ribbon(aes(ymin = lower, ymax = upper), fill = "grey60") + geom_line() +
+  facet_wrap(~ sex) + geom_point(data = filter(raw_points, sex == "(a) Female"), aes(x = age,
+  y= len, fill = species), shape = 21) + scale_fill_manual(values = c("#a1dab4", "#41b6c4")) + 
+  xlab("Age (years)") + ylab("Total lenth (cm)") + theme(legend.position = "none") + lim_theme
+
+p1 <- ggplot(data = filter(preds, sex == "(b) Male"), aes(x = age, y = len)) + 
+  geom_ribbon(aes(ymin = plower, ymax = pupper),fill = "grey80") +
+  geom_ribbon(aes(ymin = lower, ymax = upper), fill = "grey60") + geom_line() +
+  facet_wrap(~sex) + geom_point(data = filter(raw_points, sex == "(b) Male"), aes(x = age,
+  y= len, fill = species), shape = 21) + scale_fill_manual(values = c("#a1dab4", "#41b6c4")) +  
+  guides(fill = guide_legend(title = NULL)) +
+  xlab("Age (years)") + ylab("TL (cm)") + 
+  theme(legend.position = c(0.77, 0.18), legend.text = element_text(face = "italic", size = rel(0.75))) +
+  lim_theme
+
+df <- data_frame(x = c(preds$lower[1], preds$lower[1], preds$upper[1], preds$upper[1]), y = c(0, Inf, 0, Inf))
+
+p2 <- ggplot(data = len0_plot) + 
+  geom_rect(data = len0_plot, aes(xmin = preds$plower[1], xmax = preds$pupper[1], ymin = 0, ymax = Inf),
+  fill = "grey80", alpha = 0.5) + geom_rect(data = len0_plot, aes(xmin = preds$lower[1],
+  xmax = preds$upper[1], ymin = 0, ymax = Inf), fill = "grey60", alpha = 0.5) +
+  geom_rect(aes(xmin = preds$len[1], xmax = preds$len[1], ymin = 0, ymax = Inf), col= "#F21A00") + ylim(0, 50) +
+  geom_histogram(data = len0_plot, aes(x = STL, fill = species), binwidth = 2.5, col = "black") +
+  facet_wrap(~ facet) + scale_fill_manual(values = c("#a1dab4", "#41b6c4")) + 
+  guides(fill = guide_legend(title = NULL)) + theme(legend.position = c(0.21, 0.83),
+  legend.text = element_text(face = "italic", size = rel(0.75))) + 
+  xlab("TL (cm)") + ylab("Count") + lim_theme
+
+p4 <- ggplot() + #geom_line(data = true_age, aes(x = age, y = dens_age), colour = "#F21A00") +
+  geom_density(data = age2, aes(x = age, colour = Reader, fill = Reader), size = 1, alpha = 0.25) + 
+  facet_wrap(~ facet) + scale_colour_manual(values = c("#a1dab4", "#225ea8")) +
+  scale_fill_manual(values = c("#3B9AB2","#78B7C5")) +  ylab("Density") + xlab("Age (years") + 
+  guides(fill = guide_legend(title = NULL), colour = guide_legend(title = NULL)) +
+  theme(legend.position = c(0.81, 0.83)) + lim_theme
+
+p3 <- ggplot(data = preds_both, aes(x = age, y= len,  colour = species, linetype = species,
+  group = interaction(species, sex))) + geom_line() + scale_colour_manual(values = c("black", "black", "grey")) + 
+  scale_linetype_manual(values = c("solid", "dotted", "solid")) + xlab("Age (years)") + ylab("TL (cm)") +
+  guides(colour = guide_legend(title = NULL), linetype = guide_legend(title = NULL)) + theme(legend.position = 
+  c(0.77, 0.20), legend.text = element_text(face = "italic", size = rel(0.75)))+ facet_wrap(~ facet) + lim_theme
+
+p5 <- ggplot()+geom_point(data = nursery, aes(x = Month2, y= STL, fill = coh), shape =21) +
+  scale_fill_manual(values = c("#ffffcc","#a1dab4", "#41b6c4", "#225ea8")) +
+  geom_line(data = mon_pred, aes(x= Month2, y = Age, group = Cohort)) +
+  ylab("TL (cm)") + xlab("") + facet_wrap(~ facet) + 
+  scale_x_continuous(breaks = c(1:12), labels = c(month.abb[12], month.abb[-12])) +
+  guides(fill = guide_legend(title = NULL)) + theme(legend.position = c(0.35, 0.91),
+  legend.direction = "horizontal") + ylim(65, 140) + lim_theme
+
+p6 <- ggplot(data = resids, aes(x = len_pred, y = resid)) + geom_point(pch = 21, fill = "#3B9AB2") +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  ylab("Residual (cm)") + xlab("Predicted TL (cm)") + facet_wrap(~facet) +
+  lim_theme
+
+
+grid.arrange(p, p1, p2, p6, p3, p5)
+
+# Clean up environment
+rm(df, nursery, qld_age_abt_f, qld_age_abt_m, qld_len_abt_f, qld_len_abt_m, 
+   nt_age_abt_f, nt_age_abt_m, nt_len_abt_f, nt_len_abt_m, obj, parameters,
+   opt, rep, preds, preds_abt, preds_both, true_age, len0_plot, len0, mon_pred,
+   raw_points, raw_points_abt, max_f, max_m, CV, CVe, K, L0, Linf, list_data,
+   age, age_dat, age2)
+```
+
+
+Fig 3.
+\newpage
+```{r fig4, fig.width = 8, fig.height = 3.5}
+# Plots from length weight analysis
+
+## Both sexes
+p <- lw_both$plot + facet_wrap(~facet) + xlab("TL (cm)") + ylab("Weight (kg)") + xlim(50, 260) +
+  ylim(0, 135) + lim_theme
+
+# Comparison with C. tilstoni
+data_all$facet = "(b) Species comparison - log scale"
+p1 <- ggplot(data_all, aes(x = STL, y= Wgt, fill = Species)) + geom_point(shape = 21) + 
+  scale_fill_manual(values = c("#a1dab4", "#41b6c4"), guide = guide_legend(title = NULL)) + 
+  scale_y_log10(breaks = c(0.5, 1, 2, 5, 10, 20, 50, 100)) + scale_x_log10(breaks  = c(50, 75, 100, 150, 200, 250)) +
+  xlab("TL (cm)") + ylab("Weight (kg)") + facet_wrap(~facet) + lim_theme + 
+  theme(legend.position = c(0.20, 0.84), legend.text = element_text(face = "italic", size = rel(0.75)),
+  legend.margin = margin(3,3,3,3, unit = "pt"))
+
+grid.arrange(p, p1, nrow = 1)
+
+# Clean up environment
+rm(lw_m, lw_f, lw_both, lw_abt, lw_results, anova_lw, mod_lw, mod_lw2)
+```
+\
+Fig 4.
+
+\newpage
+
+```{r fig5, fig.width = 8, fig.height = 7}
+# Plots from maturity analysis
+p <- lm_both$plot + facet_wrap(~ facet) + ylab ("Proportion mature") + xlab("TL (cm)") +
+  lim_theme
+
+p1 <- am_both$plot + facet_wrap(~ facet) + ylab ("Proportion mature") + xlab("Age (years)") +
+  lim_theme
+
+lm_comparison <- select(lm_results, Species, Sex, L50, L50_lower, L50_upper, facet) %>% slice(3:9)
+
+p2 <- ggplot(lm_comparison, aes(x = Species, y = as.numeric(L50), ymin = L50_lower, ymax = L50_upper)) + 
+  geom_errorbar(aes(fill = Species, shape = Sex), width = 0.1, position = position_dodge(width = 0.5)) + 
+  geom_point(aes(fill = Species, shape = Sex), position = position_dodge(width = 0.5), size = 2) + 
+  scale_fill_manual(values = c("#ffffcc", "#a1dab4","#41b6c4"), guide = "none") + 
+  scale_shape_manual(values =c(21,22,23,24), guide = guide_legend(title = NULL))+
+  xlab("") + ylab(bquote(italic(L)[50]~"(mm)")) + theme(legend.position = c(0.22, 0.75), 
+  legend.text = element_text(size = rel(0.75)), axis.text.x = element_text(face = "italic")) + 
+  facet_wrap(~ facet) + lim_theme
+
+am_comparison <- select(am_results, Species, Sex, A50 = L50, A50_lower = L50_lower, A50_upper = L50_upper, facet) %>% 
+  slice(3:9)
+
+p3 <- ggplot(am_comparison, aes(x = Species, y = as.numeric(A50), ymin = A50_lower, 
+   ymax = A50_upper)) + 
+  geom_errorbar(aes(fill = Species, shape = Sex), width = 0.1, position = position_dodge(width = 0.5)) + 
+  geom_point(aes(fill = Species, shape = Sex), position = position_dodge(width = 0.5), size = 2) + 
+  scale_fill_manual(values = c("#ffffcc", "#a1dab4","#41b6c4"), guide = "none") + 
+  scale_shape_manual(values =c(21,22,23,24), guide = "none") +
+  xlab("") + ylab(bquote(italic(A)[50]~"(years)")) + theme(legend.text = element_text(size = rel(0.75)), 
+  axis.text.x = element_text(face = "italic")) + facet_wrap(~ facet) + lim_theme
+
+gridExtra::grid.arrange(p, p1, p2, p3, nrow = 2)
+
+# Clean up environment
+rm(am_f, am_m, am_both, am_abt_f, am_abt_m, am_both, amatern_abt, lm_f, lm_m, lm_both, lm_abt_f, lm_abt_m,
+   lmatern_abt, mod_am, mod_am2, mod_lm, mod_lm2, L50, L95)
+```
+\
+Fig 5.
+
+\newpage
+
+```{r fig6, fig.width = 10, fig.height=8}
+## Demographic analysis plots
+
+## Plot A. Density of r intrinsic values using ridgeplot
+r_plot <- mutate(monte_carlo, plot_title = "(a) Intrinsic rate of population increase ")
+
+p <- ggplot(r_plot, aes(x = r_int, y = species, fill = species)) +
+  geom_density_ridges() + scale_fill_manual(values = c("#ffffcc", "#a1dab4","#41b6c4")) +
+  theme(legend.position = "none", axis.text.y = element_text(face = "italic")) + lim_theme +
+  xlab(bquote(italic(r) ~ "(year"^"-1" ~ ")")) + ylab("") + facet_wrap(~plot_title)
+
+## Plot B. R intrinsic versus mortality
+
+# Relationship between r intrinsic and mortality
+m_r_int <- mutate(m_r_int, plot_title = "(b) Intrinsic rate of population increase vs female mortality") %>%
+  ungroup() %>%
+  mutate(species = factor(species, levels = c("C. tilstoni (NT)", "C. tilstoni (QLD)", "C. limbatus")))
+
+# Mean and CI of r intrinsic and M from Monte Carlo simulations
+confints <- group_by(monte_carlo, species) %>%
+  summarise(
+    r_int_mean = mean(r_int), upper_r_int = quantile(r_int, 0.975), lower_r_int = quantile(r_int, 0.025),
+    M_f_mean = mean(M_f), upper_M = quantile(M_f, 0.975), lower_M = quantile(M_f, 0.025)
+  )
+
+p3 <- ggplot() + facet_wrap(~plot_title) +
+  geom_errorbar(data = confints, aes(x = M_f_mean, ymin = lower_r_int, ymax = upper_r_int)) +
+  geom_errorbarh(data = confints, aes(x = M_f_mean, y = r_int_mean, xmin = lower_M, xmax = upper_M)) +
+  geom_point(data = confints, aes(x = M_f_mean, y = r_int_mean, fill = species), pch = 21) +
+  geom_line(data = m_r_int, aes(x = M_f, y = r_int, group = Pmax, colour = species)) +
+  annotate("segment", x = 0.07, xend = 0.1, y = 0.025, yend = 0.05, size = 0.5, arrow = arrow(length = unit(0.020, "npc"))) +
+  annotate("segment", x = 0.12, xend = 0.15, y = 0.025, yend = 0.05, size = 0.5, arrow = arrow(length = unit(0.020, "npc"))) +
+  annotate("text", x = 0.04, y = 0.02, label = "Biennial") +
+  annotate("text", x = 0.10, y = 0.02, label = "Triennial") +
+  scale_colour_manual(values = c("#ffffcc", "#a1dab4","#41b6c4")) +
+  scale_fill_manual(values = c("#ffffcc", "#a1dab4","#41b6c4")) +
+  guides(fill = "none") +
+  ylab(bquote(italic(r) ~ "(year"^"-1" ~ ")")) +
+  xlab(bquote(italic(M[f]) ~ "(year"^"-1" ~ ")")) +
+  theme(
+    legend.position = c(0.80, 0.80), legend.title = element_blank(),
+    legend.text = element_text(face = "italic", size = rel(0.75))
+  ) +
+  lim_theme
+
+## Plots C and D. Stable age distributions
+
+sad_plot <- group_by(monte_carlo, species) %>% 
+  select(species, sad_f, sad_integral_f, sad_m, sad_integral_m) %>%
+  mutate(id = row_number()) %>% unnest(sad_m, sad_f) %>% select(-age1) %>%
+  rename(male.weight = weight, female.weight = weight1, 
+         male.len = length, female.len = length1, 
+         male.mat = maturity, female.mat = maturity1,
+         male.spawn = maternity, female.spawn = maternity1) %>% 
+  mutate(male.weight = male.weight / sad_integral_m, 
+         female.weight = female.weight / sad_integral_f) %>% 
+  select(-sad_integral_m, -sad_integral_f, - male.spawn) %>% 
+  gather(key = "key", value = "proportion", -id, -species, -age) %>%
+  separate(key, into = c("sex", "variable")) %>% ungroup %>% 
+  spread(variable, proportion) %>%
+  arrange(species, sex, age) %>%
+  group_by(species, sex, age) %>% 
+  summarise(length = mean(len), prop = mean(weight), 
+            prop.mature = mean(mat), prop.spawn = mean(spawn)) %>%
+  mutate(prop.mature = prop * prop.mature) %>%
+  mutate(prop.spawn = prop * prop.spawn) %>%
+  unite(species_sex, c("species", "sex"), sep = " - ", remove = FALSE) %>% ungroup %>% 
+  mutate(species_sex = fct_relevel(species_sex, "C. tilstoni (NT) - male", "C. tilstoni (NT) - female", 
+                                   "C. tilstoni (QLD) - male", "C. tilstoni (QLD) - female",
+                                   "C. limbatus - male", "C. limbatus - female"))  %>%
+  gather(key = biomass_type, value = biomass, - species_sex, -species, -sex, - age, -length) %>%
+  mutate(species = ifelse(species %in% "C. limbatus", "C. limbatus", "C. tilstoni")) %>%
+  mutate(region = ifelse(species_sex %in% c("C. tilstoni (NT) - female", "C. tilstoni (NT) - male"), "(NT)", " ")) %>%
+  mutate(region = ifelse(species_sex %in% c("C. tilstoni (QLD) - female", "C. tilstoni (QLD) - male"), "(QLD)", region)) %>%
+  mutate(label = factor(paste("paste(italic(\"", species, "\"), \" ", region, " - ", sex, "\")", sep = ""))) %>%
+  mutate(plot_title = "(c) Stable age distribution vs Age") %>%
+  mutate(plot_title2 = "(d) Stable age distribution vs Length") %>% 
+  filter(!is.na(biomass))
+
+labs <- levels(sad_plot$label) 
+labs <- labs[c(1,2,5,6,3,4)]
+labs <- parse(text = labs)
+
+
+p1 <- ggplot() +
+  geom_ridgeline(data = sad_plot, aes(x = age, y = species_sex, 
+                                  height = biomass, alpha = biomass_type,
+                                  fill = species_sex), scale = 7.5) +
+  scale_y_discrete("", labels = rev(labs)) +
+  scale_fill_manual(values = c("#ffffcc", "#ffffcc", "#a1dab4", "#a1dab4", "#41b6c4", "#41b6c4")) + xlim(0, 30) + 
+  scale_alpha_manual(values = c(0.4, 0.7, 1)) + 
+  theme(legend.position = "none", 
+        axis.text.y = element_text(size = rel(0.85))) + 
+  xlab("Age (years)") + 
+  facet_wrap(~ plot_title) + lim_theme
+
+
+p2 <- ggplot() +
+  geom_ridgeline(data = sad_plot, aes(x = length, y = species_sex, 
+                                  height = biomass, alpha = biomass_type,
+                                  fill = species_sex), scale = 7.5) +
+  scale_y_discrete("", labels = NULL) +
+  scale_fill_manual(values = c("#ffffcc", "#ffffcc", "#a1dab4", "#a1dab4", "#41b6c4", "#41b6c4")) +
+  scale_alpha_manual(values = c(0.4, 0.6, 1)) + 
+  annotate("segment", x = 200, xend = 135, y = 3, yend = 2.65, size = 0.5, arrow = arrow(length = unit(0.020, "npc"))) +
+  annotate("segment", x = 215, xend = 150, y = 2.65, yend = 2.3, size = 0.5, arrow = arrow(length = unit(0.020, "npc"))) +
+  annotate("text", x = 215, y = 3, label = "Mature") +
+  annotate("text", x = 235, y = 2.65, label = "Maternal") +
+  theme(legend.position = "none") + 
+  ylab("") + xlab("TL (cm)") + 
+  facet_wrap(~ plot_title2) + lim_theme
+
+gA <- ggplotGrob(p)
+gB <- ggplotGrob(p1)
+gC <- ggplotGrob(p2)
+gD <- ggplotGrob(p3)
+
+gAC <- do.call(rbind, c(list(gA, gB), size = "first"))
+gBD <- do.call(rbind, c(list(gD, gC), size = "first"))
+
+grid::grid.newpage()
+grid.arrange(gAC, gBD, ncol = 2, widths = c(0.55, 0.45))
+```
+
+\
+Fig 6.
+
