@@ -4,7 +4,7 @@
 source("analysis/setup.R")
 
 # Prepare data
-data <- read_excel("data/Data.xlsx")%>%
+data <- read_excel("data/Data-dummy-lats-longs.xlsx")%>%
   
   # Data validation
   filter(!Tag %in% "175") %>% # Likely species ID error, no details other than length

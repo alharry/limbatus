@@ -10,6 +10,8 @@ Harry AV, Butcher PA, Macbeth WG, Morgan JAT, Taylor SM & Geraghty PT (2019) Lif
 
 To reproduce analysis run `source("run_all.R")`. 
 
+Note: Dummy lats and longs have been provided in the data file. For a password to the file with the correct lats and longs please email alastair.harry@gmail.com
+
 Repository structure:
 ```
 |--data/
