@@ -6,6 +6,8 @@ Published scientific manuscript:
 
 Harry AV, Butcher PA, Macbeth WG, Morgan JAT, Taylor SM & Geraghty PT (2019) Life history of the common blacktip shark, Carcharhinus limbatus, from central eastern Australia and comparative demography of a cryptic shark complex *Marine and Freshwater Research* <https://doi.org/10.1071/MF18141>
 
+[![DOI](https://zenodo.org/badge/167084058.svg)](https://zenodo.org/badge/latestdoi/167084058)
+
 ![](https://www.publish.csiro.au/images/journals/banners/ban_mf_1.png)
 
 To reproduce analysis run `source("run_all.R")`. 
